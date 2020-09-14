@@ -1,34 +1,86 @@
 import React from "react";
 import { Container, Menu, Button } from "semantic-ui-react";
+import { NavLink } from "react-router-dom";
+import { routes } from "../../routes";
 
-export const Navbar = ({ fixed }) => (
-  <Menu
-    fixed={fixed ? "top" : null}
-    inverted={!fixed}
-    pointing={!fixed}
-    secondary={!fixed}
-    size="large"
-  >
-    <Container>
-      <Menu.Item as="a" active>
-        Home
-      </Menu.Item>
-      <Menu.Item as="a">Projects</Menu.Item>
-      <Menu.Item as="a">Snippets</Menu.Item>
-      <Menu.Item as="a">Resume</Menu.Item>
-      <Menu.Item position="right">
-        <Button as="a" inverted={!fixed}>
-          Log in
-        </Button>
-        <Button
-          as="a"
-          inverted={!fixed}
-          primary={fixed}
-          style={{ marginLeft: "0.5em" }}
-        >
-          Sign Up
-        </Button>
-      </Menu.Item>
-    </Container>
-  </Menu>
-);
+const NavbarContainer = ({ fixed }) => {
+  // On refresh - get the current active item from url
+  const [activeItem, setActiveItem] = React.useState(
+    window.location.pathname
+      .split("")
+      .filter((c) => c !== "/")
+      .join("")
+  );
+
+  const handleItemClick = (event, { name }) => setActiveItem(name);
+
+  return (
+    <Navbar
+      fixed={fixed}
+      activeItem={activeItem}
+      handleClick={handleItemClick}
+    />
+  );
+};
+
+const Navbar = ({ fixed, activeItem, handleClick }) => {
+  return (
+    <Menu
+      fixed={fixed ? "top" : null}
+      inverted={!fixed}
+      pointing={!fixed}
+      secondary={!fixed}
+      size="large"
+    >
+      <Container>
+        <NavLink to={routes.pages.home}>
+          <Menu.Item
+            as="a"
+            name="home"
+            active={activeItem === "home"}
+            onClick={handleClick}
+          />
+        </NavLink>
+        <NavLink to={routes.pages.projects}>
+          <Menu.Item
+            as="a"
+            name="projects"
+            active={activeItem === "projects"}
+            onClick={handleClick}
+          />
+        </NavLink>
+        <NavLink to={routes.pages.snippets}>
+          <Menu.Item
+            as="a"
+            name="snippets"
+            active={activeItem === "snippets"}
+            onClick={handleClick}
+          />
+        </NavLink>
+        <NavLink to={routes.pages.resume}>
+          <Menu.Item
+            as="a"
+            name="resume"
+            active={activeItem === "resume"}
+            onClick={handleClick}
+          />
+        </NavLink>
+        <Menu.Item position="right">
+          <Button as="a" inverted={!fixed}>
+            Log in
+          </Button>
+          <Button
+            as="a"
+            inverted={!fixed}
+            primary={fixed}
+            style={{ marginLeft: "0.5em" }}
+          >
+            Sign Up
+          </Button>
+        </Menu.Item>
+      </Container>
+    </Menu>
+  );
+};
+
+export default NavbarContainer;

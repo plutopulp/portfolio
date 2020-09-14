@@ -11,6 +11,7 @@ import {
   Button,
 } from "semantic-ui-react";
 import styled from "styled-components";
+import { ResponsiveContainer } from "../layout/containers";
 
 const Spacer = styled.div`
   margin-top: ${(props) => (props.mobile ? "3em" : "12em")};
@@ -28,6 +29,10 @@ const StyledSubHeading = styled(Header)`
   margin-top: ${(props) => (props.mobile ? "0.5em" : "1.5em")};
   color: #ffffff;
 `;
+
+export const Home = () => (
+  <ResponsiveContainer heading={<HomeHeading />} body={<HomeBody />} />
+);
 
 export const HomeHeading = ({ mobile }) => (
   <Container text>

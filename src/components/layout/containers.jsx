@@ -11,7 +11,7 @@ import {
   Button,
   Icon,
 } from "semantic-ui-react";
-import { Navbar } from "./navbar";
+import Navbar from "./navbar";
 import { MobileSidebar } from "./sidebar";
 
 const StyledDesktopBanner = styled(Segment)`
