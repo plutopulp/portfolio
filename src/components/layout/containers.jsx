@@ -7,30 +7,12 @@ import {
   Segment,
   Sidebar,
   Container,
-  Header,
   Menu,
   Button,
   Icon,
 } from "semantic-ui-react";
 import { Navbar } from "./navbar";
 import { MobileSidebar } from "./sidebar";
-
-const Spacer = styled.div`
-  margin-top: ${(props) => (props.mobile ? "3em" : "12em")};
-`;
-
-const StyledHeading = styled(Header)`
-  font-size: ${(props) => (props.mobile ? "2em" : "4em")};
-  font-weight: 500;
-  color: #ffffff;
-`;
-
-const StyledSubHeading = styled(Header)`
-  font-size: ${(props) => (props.mobile ? "1.5" : "1.7em")};
-  font-weight: 500;
-  margin-top: ${(props) => (props.mobile ? "0.5em" : "1.5em")};
-  color: #ffffff;
-`;
 
 const StyledDesktopBanner = styled(Segment)`
   text-align: center;
@@ -52,8 +34,8 @@ const { MediaContextProvider, Media } = createMedia({
   },
 });
 
-const DesktopContainer = (props) => {
-  const { children } = props;
+export const DesktopContainer = (props) => {
+  const { heading, body } = props;
   const [fixed, setFixed] = React.useState(false);
 
   const hideFixedMenu = () => setFixed(false);
@@ -68,10 +50,10 @@ const DesktopContainer = (props) => {
       >
         <StyledDesktopBanner inverted vertical>
           <Navbar fixed={fixed} />
-          <HomepageHeading />
+          {heading}
         </StyledDesktopBanner>
       </Visibility>
-      {children}
+      {body}
     </Media>
   );
 };
@@ -80,8 +62,7 @@ DesktopContainer.propTypes = {
   children: PropTypes.node,
 };
 
-const MobileContainer = (props) => {
-  const { children } = props;
+export const MobileContainer = ({ heading, body }) => {
   const [sidebarOpened, setSidebarOpened] = React.useState(false);
 
   const handleSidebarHide = () => setSidebarOpened(false);
@@ -109,10 +90,9 @@ const MobileContainer = (props) => {
                 </Menu.Item>
               </Menu>
             </Container>
-            <HomepageHeading mobile />
+            {React.cloneElement(heading, { mobile: true })}
           </StyledMobileBanner>
-
-          {children}
+          {body}
         </Sidebar.Pusher>
       </Sidebar.Pushable>
     </Media>
@@ -123,31 +103,13 @@ MobileContainer.propTypes = {
   children: PropTypes.node,
 };
 
-export const ResponsiveContainer = ({ children }) => (
+export const ResponsiveContainer = ({ heading, body }) => (
   <MediaContextProvider>
-    <DesktopContainer>{children}</DesktopContainer>
-    <MobileContainer>{children}</MobileContainer>
+    <DesktopContainer heading={heading} body={body} />
+    <MobileContainer heading={heading} body={body} />
   </MediaContextProvider>
 );
 
 ResponsiveContainer.propTypes = {
   children: PropTypes.node,
 };
-
-const HomepageHeading = ({ mobile }) => (
-  <Container text>
-    <Spacer mobile={mobile} />
-    <StyledHeading mobile={mobile} as="h1" inverted>
-      Yvan Buggy
-    </StyledHeading>
-
-    <StyledSubHeading mobile={mobile} as="h2" inverted>
-      Software Developper
-    </StyledSubHeading>
-
-    <Button primary size="huge">
-      Get Started
-      <Icon name="right arrow" />
-    </Button>
-  </Container>
-);
