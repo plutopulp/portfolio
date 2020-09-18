@@ -1,56 +1,14 @@
 import React from "react";
 import {
-  Grid,
-  Divider,
-  Container,
   Segment,
+  Grid,
   Header,
   Image,
-  List,
-  Icon,
   Button,
+  Container,
+  Divider,
+  List,
 } from "semantic-ui-react";
-import styled from "styled-components";
-import { ResponsiveContainer } from "../layout/containers";
-
-const Spacer = styled.div`
-  margin-top: ${(props) => (props.mobile ? "3em" : "12em")};
-`;
-
-const StyledHeading = styled(Header)`
-  font-size: ${(props) => (props.mobile ? "2em" : "4em")};
-  font-weight: 500;
-  color: #ffffff;
-`;
-
-const StyledSubHeading = styled(Header)`
-  font-size: ${(props) => (props.mobile ? "1.5" : "1.7em")};
-  font-weight: 500;
-  margin-top: ${(props) => (props.mobile ? "0.5em" : "1.5em")};
-  color: #ffffff;
-`;
-
-export const Home = () => (
-  <ResponsiveContainer heading={<HomeHeading />} body={<HomeBody />} />
-);
-
-export const HomeHeading = ({ mobile }) => (
-  <Container text>
-    <Spacer mobile={mobile} />
-    <StyledHeading mobile={mobile} as="h1" inverted>
-      Yvan Buggy
-    </StyledHeading>
-
-    <StyledSubHeading mobile={mobile} as="h2" inverted>
-      Software Developper
-    </StyledSubHeading>
-
-    <Button primary size="huge">
-      Get Started
-      <Icon name="right arrow" />
-    </Button>
-  </Container>
-);
 
 export const HomeBody = (props) => (
   <React.Fragment>
