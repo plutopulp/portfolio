@@ -1,5 +1,5 @@
 import React from "react";
-import { Container, Button, Icon } from "semantic-ui-react";
+import { Container } from "semantic-ui-react";
 import { SpacerLg, StyledHeading, StyledSubHeading } from "../common/styles";
 
 export const Heading = ({

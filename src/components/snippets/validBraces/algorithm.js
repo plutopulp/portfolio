@@ -1,5 +1,11 @@
 const complements = { "(": ")", "[": "]", "{": "}" };
 
+const hasValidBraces = (string) => {
+  // Checks whether a string has valid braces
+  const braces = filterBraces(string);
+  return validBraces(braces);
+};
+
 const filterBraces = (string) => {
   // Filter braces from the input string
   const filteredArray = [...string].filter(
@@ -17,11 +23,6 @@ const validBraces = (string) => {
     }
   }
   return false;
-};
-
-const hasValidBraces = (string) => {
-  const braces = filterBraces(string);
-  return validBraces(braces);
 };
 
 export { hasValidBraces };

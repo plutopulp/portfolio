@@ -13,6 +13,7 @@ import {
 } from "semantic-ui-react";
 import Navbar from "./navbar";
 import { MobileSidebar } from "./sidebar";
+import { useToggle } from "../../hooks/useToggle";
 
 const StyledDesktopBanner = styled(Segment)`
   text-align: center;
@@ -36,17 +37,14 @@ const { MediaContextProvider, Media } = createMedia({
 
 export const DesktopContainer = (props) => {
   const { heading, body } = props;
-  const [fixed, setFixed] = React.useState(false);
-
-  const hideFixedMenu = () => setFixed(false);
-  const showFixedMenu = () => setFixed(true);
+  const [fixed, handleToggle] = useToggle(false);
 
   return (
     <Media greaterThan="mobile">
       <Visibility
         once={false}
-        onBottomPassed={showFixedMenu}
-        onBottomPassedReverse={hideFixedMenu}
+        onBottomPassed={handleToggle}
+        onBottomPassedReverse={handleToggle}
       >
         <StyledDesktopBanner inverted vertical>
           <Navbar fixed={fixed} />
@@ -63,17 +61,13 @@ DesktopContainer.propTypes = {
 };
 
 export const MobileContainer = ({ heading, body }) => {
-  const [sidebarOpened, setSidebarOpened] = React.useState(false);
-
-  const handleSidebarHide = () => setSidebarOpened(false);
-  const handleToggle = () => setSidebarOpened(true);
+  const [sidebar, handleToggle] = useToggle(false);
 
   return (
     <Media as={Sidebar.Pushable} at="mobile">
       <Sidebar.Pushable>
-        <MobileSidebar onHide={handleSidebarHide} open={sidebarOpened} />
-
-        <Sidebar.Pusher dimmed={sidebarOpened}>
+        <MobileSidebar onHide={handleToggle} open={sidebar} />
+        <Sidebar.Pusher dimmed={sidebar}>
           <StyledMobileBanner inverted vertical>
             <Container>
               <Menu inverted pointing secondary size="large">
