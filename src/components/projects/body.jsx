@@ -1,4 +1,18 @@
 import React from "react";
-import { ProjectCard } from "./card";
+import uuid from "react-uuid";
 
-export const ProjectsBody = () => <ProjectCard />;
+import { ProjectCard } from "./projectCard";
+
+import { projectsContent } from "./content";
+
+const ProjectsBody = () => <ProjectCardList />;
+
+const ProjectCardList = () => (
+  <React.Fragment>
+    {projectsContent.map((project, index) => {
+      return <ProjectCard key={uuid()} {...project} />;
+    })}
+  </React.Fragment>
+);
+
+export { ProjectsBody };
