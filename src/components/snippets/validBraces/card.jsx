@@ -1,7 +1,6 @@
 import React from "react";
 import { SnippetCardContainer as SnippetCard } from "../snippetCard";
 import { Container, Form, Message } from "semantic-ui-react";
-import { useFormField } from "../../../hooks/useFormFields";
 import { hasValidBraces } from "./algorithm";
 
 const ValidBracesCard = () => (
