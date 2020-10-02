@@ -1,9 +1,11 @@
 import React from "react";
 import PropTypes from "prop-types";
+import uuid from "react-uuid";
 
 import { Card, Label, Image, Button, Icon } from "semantic-ui-react";
 
 import { WithHover } from "../common/withHover";
+import { DeviculumChart } from "./deviculumChart/deviculumChart";
 
 const ProjectCard = (props) => (
   <WithHover>
@@ -23,14 +25,22 @@ ProjectCard.propTypes = {
 };
 
 const CardWithProps = (props) => (
-  <Card raised={props.hovered} fluid>
-    <Image src={props.img} wrapped ui={false} />
+  <Card raised={props.hovered} fluid style={{ width: "30%" }}>
+    <DeviculumChart />
     <Card.Content>
       <Card.Header>{props.title}</Card.Header>
       <Card.Description>{props.description}</Card.Description>
       <Card.Meta>
-        <TechStack title="Backend Stack" techs={props.technologies.backend} />
-        <TechStack title="Frontend Stack" techs={props.technologies.frontend} />
+        <TechStack
+          title="Backend Stack"
+          techs={props.technologies.backend}
+          color="brown"
+        />
+        <TechStack
+          title="Frontend Stack"
+          techs={props.technologies.frontend}
+          color="blue"
+        />
       </Card.Meta>
     </Card.Content>
     <Card.Content extra>First</Card.Content>
@@ -47,17 +57,25 @@ CardWithProps.propTypes = {
   hovered: PropTypes.bool,
 };
 
-const TechStack = ({ title, techs }) => {
+const TechStack = ({ title, techs, color }) => {
   return (
     <p>
       {title}
-      <Label.Group tag size="small">
+      <Label.Group tag size="small" color={color} inverted>
         {" "}
         {techs.map((tech) => (
-          <Label as="a">{tech}</Label>
+          <Label key={uuid()} as="a">
+            {tech}
+          </Label>
         ))}{" "}
       </Label.Group>
     </p>
   );
+};
+
+TechStack.propTypes = {
+  title: PropTypes.string.isRequired,
+  techs: PropTypes.arrayOf(PropTypes.string).isRequired,
+  color: PropTypes.string.isRequired,
 };
 export { ProjectCard };
