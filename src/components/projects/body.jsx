@@ -1,18 +1,19 @@
 import React from "react";
 import uuid from "react-uuid";
+import { Card } from "semantic-ui-react";
 
 import { ProjectCard } from "./projectCard";
 
 import { projectsContent } from "./content";
 
-const ProjectsBody = () => <ProjectCardList />;
+const ProjectsBody = () => <ProjectCardGroup />;
 
-const ProjectCardList = () => (
-  <React.Fragment>
-    {projectsContent.map((project, index) => {
+const ProjectCardGroup = () => (
+  <Card.Group stackable itemsPerRow={2} centered>
+    {projectsContent.map((project) => {
       return <ProjectCard key={uuid()} {...project} />;
     })}
-  </React.Fragment>
+  </Card.Group>
 );
 
 export { ProjectsBody };

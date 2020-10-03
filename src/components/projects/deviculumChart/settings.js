@@ -32,7 +32,7 @@ export const datasets = [
 
 export const options = {
   responsive: true,
-  aspectRatio: 1.5,
+  aspectRatio: 1,
   scales: {
     xAxes: [{ stacked: true }],
     yAxes: [
