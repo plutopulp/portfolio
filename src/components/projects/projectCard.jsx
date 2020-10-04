@@ -10,8 +10,9 @@ import { DeviculumChart } from "./deviculumChart/deviculumChart";
 
 const CardWrapper = styled.div`
   width: 30em;
-  margin: ;
+  margin: 2em;
 `;
+const StyledTitle = styled.h4``;
 const ProjectCard = (props) => (
   <WithHover>
     <CardWithProps {...props} />
@@ -39,16 +40,9 @@ const CardWithProps = (props) => (
       </Card.Content>
       <Card.Content extra>
         <Card.Meta>
-          <TechStack
-            title="Backend Stack"
-            techs={props.technologies.backend}
-            color="brown"
-          />
-          <TechStack
-            title="Frontend Stack"
-            techs={props.technologies.frontend}
-            color="blue"
-          />
+          <StyledTitle>Tech Stack</StyledTitle>
+          <TechStack techs={props.technologies.backend} color="brown" />
+          <TechStack techs={props.technologies.frontend} color="blue" />
         </Card.Meta>
       </Card.Content>
       <Card.Content extra>{props.learnings.join(", ")}</Card.Content>
@@ -74,10 +68,9 @@ CardImage.propTypes = {
   img: PropTypes.string,
 };
 
-const TechStack = ({ title, techs, color }) => {
+const TechStack = ({ techs, color }) => {
   return (
     <p>
-      {title}
       <Label.Group tag size="small" color={color} inverted>
         {" "}
         {techs.map((tech) => (
@@ -91,7 +84,6 @@ const TechStack = ({ title, techs, color }) => {
 };
 
 TechStack.propTypes = {
-  title: PropTypes.string.isRequired,
   techs: PropTypes.arrayOf(PropTypes.string).isRequired,
   color: PropTypes.string.isRequired,
 };

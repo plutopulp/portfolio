@@ -1,6 +1,12 @@
 import React from "react";
 import { Container } from "semantic-ui-react";
-import { SpacerLg, StyledHeading, StyledSubHeading } from "../common/styles";
+
+import {
+  SpacerLg,
+  StyledHeading,
+  StyledSubHeading,
+  StyledCircle,
+} from "../common/styles";
 
 export const Heading = ({
   mobile,
@@ -10,6 +16,8 @@ export const Heading = ({
 }) => (
   <Container text>
     <SpacerLg mobile={mobile} />
+    <StyledCircle color="#6A9DBB" radius="200px" />
+
     <StyledHeading mobile={mobile} as="h1" inverted>
       {headingText}
     </StyledHeading>

@@ -9,6 +9,7 @@ import {
   Divider,
   List,
 } from "semantic-ui-react";
+import styled from "styled-components";
 
 export const HomeBody = (props) => (
   <React.Fragment>
