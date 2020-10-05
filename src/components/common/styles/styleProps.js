@@ -1,28 +1,33 @@
 export const responsiveProps = {
   mobile: {
     fontSize: {
-      heading: "2em",
-      subHeading: "1.2em",
+      header: "2em",
+      subHeader: "1.2em",
     },
     marginTops: {
       spacerLg: "3em",
-      subHeading: "0.5em",
+      subHeader: "0.5em",
     },
   },
   desktop: {
     fontSize: {
-      heading: "4em",
-      subHeading: "1.7em",
+      header: "4em",
+      subHeader: "1.7em",
     },
     marginTops: {
       spacerLg: "12em",
-      subHeading: "1.5em",
+      subHeader: "1.5em",
     },
   },
 };
 
 export const animationProps = {
-  headingDrift: "15em",
-  subHeadingDrift: "30em",
-  durationLong: "2.5s",
+  headerDrift: "15em",
+  subHeaderDrift: "45em",
+  durations: {
+    tiny: "50ms",
+    short: "200ms",
+    med: "1s",
+    long: "2.5s",
+  },
 };

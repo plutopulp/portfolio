@@ -1,17 +1,19 @@
 import React from "react";
 import { Heading } from "../common/heading";
-import { Button, Icon } from "semantic-ui-react";
+import { Icon } from "semantic-ui-react";
+
+import { ButtonWithAnimation } from "../common/styles/index";
 
 export const HomeHeading = ({ mobile }) => (
   <Heading
     mobile={mobile}
-    headingText="Yvan Buggy"
-    subHeadingText="Software Developer"
+    headerText="Yvan Buggy"
+    subHeaderText="Software Developer"
     actionButton={
-      <Button primary size="huge">
+      <ButtonWithAnimation primary size="huge">
         Get Started
         <Icon name="right arrow" />
-      </Button>
+      </ButtonWithAnimation>
     }
   />
 );

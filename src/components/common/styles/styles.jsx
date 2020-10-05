@@ -1,53 +1,11 @@
-import styled, { css, keyframes } from "styled-components";
-import { Header } from "semantic-ui-react";
-import { responsiveProps, animationProps } from "./styleProps";
-
-const headingAnimation = keyframes`
-from {transform: translateY(0)}
-to {transform: translateY(${animationProps.headingDrift})}
-`;
-
-const subHeadingAnimation = keyframes`
-from {transform: translateX(0)}
-to {transform: translateX(${animationProps.subHeadingDrift})}
-`;
-
-const HeadingFont = css`
-  font-weight: 500;
-  color: #ffffff;
-`;
+import styled, { css } from "styled-components";
+import { responsiveProps } from "./styleProps";
 
 export const SpacerLg = styled.div`
   margin-top: ${(props) =>
     props.mobile
       ? `${responsiveProps.mobile.marginTops.spacerLg}`
       : `${responsiveProps.desktop.marginTops.spacerLg}`};
-`;
-
-export const StyledHeading = styled(Header)`
-  ${HeadingFont};
-  font-size: ${(props) =>
-    props.mobile
-      ? `${responsiveProps.mobile.fontSize.heading}`
-      : `${responsiveProps.desktop.fontSize.heading}`};
-  position: relative;
-  top: -${animationProps.headingDrift};
-  animation: ${headingAnimation} ${animationProps.durationLong} forwards;
-`;
-
-export const StyledSubHeading = styled(Header)`
-  ${HeadingFont};
-  font-size: ${(props) =>
-    props.mobile
-      ? `${responsiveProps.mobile.fontSize.subHeading}`
-      : `${responsiveProps.desktop.fontSize.subHeading}`};
-  margin-top: ${(props) =>
-    props.mobile
-      ? `${responsiveProps.mobile.marginTops.subHeading}`
-      : `${responsiveProps.desktop.marginTops.subHeading}`};
-  position: relative;
-  left: -${animationProps.subHeadingDrift};
-  animation: ${subHeadingAnimation} ${animationProps.durationLong} forwards;
 `;
 
 export const Transition = styled.div`

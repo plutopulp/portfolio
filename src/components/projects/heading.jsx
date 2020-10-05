@@ -5,8 +5,8 @@ import { Button, Icon } from "semantic-ui-react";
 export const ProjectsHeading = ({ mobile }) => (
   <Heading
     mobile={mobile}
-    headingText="Yvan Buggy"
-    subHeadingText="Software Developer"
+    headerText="Yvan Buggy"
+    subHeaderText="Software Developer"
     actionButton={
       <Button primary size="huge">
         Get Started
