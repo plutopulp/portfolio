@@ -6,7 +6,7 @@ import {
   StyledHeading,
   StyledSubHeading,
   StyledCircle,
-} from "../common/styles";
+} from "./styles/styles";
 
 export const Heading = ({
   mobile,
