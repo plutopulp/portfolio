@@ -1,6 +1,6 @@
 import styled, { css } from "styled-components";
 import { responsiveProps } from "./styleProps";
-
+import { spiralAnimation, opacityAnimation } from "./animations";
 export const SpacerLg = styled.div`
   margin-top: ${(props) =>
     props.mobile
@@ -22,16 +22,14 @@ export const StyledCircle = styled(Transition)`
   width: ${(props) => props.radius};
   height: ${(props) => props.radius};
   border-radius: 50%;
+  position: absolute;
+  top: ${(props) => props.initialTop}em;
+  left: ${(props) => props.initialLeft}em;
   background-color: ${(props) => props.color};
-  color: white;
-  text-align: center;
-  margin: 0 auto;
-  display: flex;
-  align-items: center;
   transition-property: width, background-color;
+  animation: ${spiralAnimation} 20s 3s ease-in-out infinite alternate both;
   &:hover {
     background-color: #d495d5;
-    width: calc(0.95 * ${(props) => props.radius});
-    transition-property: width, background-color;
+    transition-property: background-color;
   }
 `;

@@ -7,8 +7,8 @@ import { ButtonWithAnimation, RotateButtonChild } from "../common/styles/index";
 export const HomeHeading = ({ mobile }) => (
   <Heading
     mobile={mobile}
-    headerText="Yvan Buggy"
-    subHeaderText="Software Developer"
+    headerText="Hello, I'm Yvan"
+    subHeaderText="a full-stack developer"
     actionButton={
       <ButtonWithAnimation primary size="huge">
         About Me

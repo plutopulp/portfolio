@@ -18,8 +18,6 @@ export const Heading = ({
 }) => (
   <Container text>
     <SpacerLg mobile={mobile} />
-    <StyledCircle color="#6A9DBB" radius="200px" />
-
     <MainHeaderWithAnimation mobile={mobile} as="h1" inverted>
       {headerText}
     </MainHeaderWithAnimation>
