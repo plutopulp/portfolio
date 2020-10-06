@@ -2,7 +2,7 @@ import React from "react";
 import PropTypes from "prop-types";
 import { Container } from "semantic-ui-react";
 
-import { SpacerLg, StyledCircle } from "./styles/styles";
+import { MovingCircle } from "./styles/styles";
 import {
   MainHeader,
   SubHeader,
@@ -16,8 +16,8 @@ export const Heading = ({
   subHeaderText,
   actionButton,
 }) => (
-  <Container text>
-    <SpacerLg mobile={mobile} />
+  <Container text style={{ padding: "0em" }}>
+    <MovingCircle diameter="1vw" color="white" left="50%" top="0" />
     <MainHeaderWithAnimation mobile={mobile} as="h1" inverted>
       {headerText}
     </MainHeaderWithAnimation>

@@ -10,7 +10,7 @@ export const HomeHeading = ({ mobile }) => (
     headerText="Hello, I'm Yvan"
     subHeaderText="a full-stack developer"
     actionButton={
-      <ButtonWithAnimation primary size="huge">
+      <ButtonWithAnimation primary size="huge" style={{ marginRight: "0em" }}>
         About Me
         <RotateButtonChild angle="90deg">
           <Icon name="right arrow" />

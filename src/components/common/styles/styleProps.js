@@ -11,8 +11,8 @@ export const responsiveProps = {
   },
   desktop: {
     fontSize: {
-      header: "4em",
-      subHeader: "1.7em",
+      header: "3em",
+      subHeader: "1.5em",
     },
     marginTops: {
       spacerLg: "12em",

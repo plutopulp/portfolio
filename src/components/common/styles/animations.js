@@ -23,3 +23,8 @@ export const spiralAnimation = keyframes`
 from {transform: rotate(${getRandomAngle()}) translate(${getRandomDistance()}) rotate(0deg)}
 to {transform: rotate(${getRandomAngle()}) translate(0px) rotate(-360deg)}
 `;
+
+export const circularAnimation = keyframes`
+from {transform: rotate(0deg) translate(40vw) rotate(0deg);}
+to {transform: rotate(1080deg) translate(0px) rotate(-1080deg);}
+`;

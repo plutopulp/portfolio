@@ -11,6 +11,7 @@ const HeaderFont = css`
 
 export const MainHeader = styled(Header)`
   ${HeaderFont};
+  margin-top: 0;
   font-size: ${(props) =>
     props.mobile
       ? `${responsiveProps.mobile.fontSize.header}`

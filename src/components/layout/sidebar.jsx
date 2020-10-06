@@ -16,7 +16,5 @@ export const MobileSidebar = ({ onHide, open }) => (
     <Menu.Item as="a">Projects</Menu.Item>
     <Menu.Item as="a">Snippets</Menu.Item>
     <Menu.Item as="a">Resume</Menu.Item>
-    <Menu.Item as="a">Log in</Menu.Item>
-    <Menu.Item as="a">Sign Up</Menu.Item>
   </Sidebar>
 );

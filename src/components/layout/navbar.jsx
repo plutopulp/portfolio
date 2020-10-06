@@ -1,4 +1,5 @@
 import React from "react";
+import styled from "styled-components";
 import { Container, Menu, Button } from "semantic-ui-react";
 import { NavLink } from "react-router-dom";
 import { routes } from "../../routes";
@@ -65,19 +66,6 @@ const Navbar = ({ fixed, activeItem, handleClick }) => {
             onClick={handleClick}
           />
         </NavLink>
-        <Menu.Item position="right">
-          <Button as="a" inverted={!fixed}>
-            Log in
-          </Button>
-          <Button
-            as="a"
-            inverted={!fixed}
-            primary={fixed}
-            style={{ marginLeft: "0.5em" }}
-          >
-            Sign Up
-          </Button>
-        </Menu.Item>
       </Container>
     </Menu>
   );
