@@ -1,10 +1,5 @@
 import styled, { css } from "styled-components";
-import { responsiveProps } from "./styleProps";
-import {
-  spiralAnimation,
-  opacityAnimation,
-  circularAnimation,
-} from "./animations";
+import { spiralAnimation } from "./animations";
 
 export const Transition = styled.div`
   transition-duration: 300ms;
@@ -16,22 +11,15 @@ export const Transition = styled.div`
     transition-delay: 50ms;
   }
 `;
-export const BaseCircle = css`
-  border-radius: 50%;
-  position: absolute;
-`;
-export const TopRightCircle = styled.div`
-  ${BaseCircle};
-  width: 5%;
-`;
+
 export const Circle = styled.div`
-  width: ${(props) => props.diameter};
-  height: ${(props) => props.diameter};
+  width: ${({ diameter }) => (diameter ? diameter : "50px")};
+  height: ${({ diameter }) => (diameter ? diameter : "50px")};
   border-radius: 50%;
   position: absolute;
-  top: ${(props) => props.top};
-  left: ${(props) => props.left};
-  background-color: ${(props) => props.color};
+  top: ${({ top }) => (top ? top : "0px")};
+  left: ${({ left }) => (left ? left : "0px")};
+  background-color: ${({ color }) => (color ? color : "#fff")};
 `;
 
 export const StyledCircle = styled(Transition)`
@@ -45,5 +33,7 @@ export const StyledCircle = styled(Transition)`
 `;
 
 export const MovingCircle = styled(Circle)`
-  animation: ${circularAnimation} 20s 2s ease-in-out alternate infinite;
+  animation: ${({ initialAngle, twist }) =>
+      spiralAnimation(initialAngle, twist)}
+    60s 2s ease-in-out alternate-reverse infinite;
 `;

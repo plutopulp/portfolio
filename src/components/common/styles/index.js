@@ -1,6 +1,7 @@
 import * as banners from "./banners";
 import * as headers from "./headers";
 import * as buttons from "./buttons";
+import * as circles from "./circles";
 import * as animations from "./animations";
 import * as transitions from "./transitions";
 
@@ -16,3 +17,4 @@ export const {
 
 export const { ButtonWithAnimation, RotateButtonChild } = buttons;
 export const { RotateChildOnHover } = transitions;
+export const { Circle, MovingCircle } = circles;

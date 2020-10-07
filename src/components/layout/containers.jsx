@@ -17,8 +17,8 @@ import { MobileSidebar } from "./sidebar";
 import {
   StyledDesktopBanner,
   StyledMobileBanner,
+  Circle,
 } from "../common/styles/index";
-import { Circle } from "../common/styles/styles";
 
 import styled from "styled-components";
 const PlaceCenter = styled.div`

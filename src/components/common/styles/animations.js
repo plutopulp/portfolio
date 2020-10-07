@@ -1,9 +1,6 @@
 import { keyframes } from "styled-components";
 import { animationProps } from "./styleProps";
 
-const getRandomAngle = () => `${Math.random() * 100}deg`;
-const getRandomDistance = () => `${Math.random() * 100}em`;
-
 export const headerAnimation = keyframes`
 from {transform: translateY(0)}
 to {transform: translateY(${animationProps.headerDrift})}
@@ -19,12 +16,7 @@ from {opacity: 0}
 to {opacity: 1}
 `;
 
-export const spiralAnimation = keyframes`
-from {transform: rotate(${getRandomAngle()}) translate(${getRandomDistance()}) rotate(0deg)}
-to {transform: rotate(${getRandomAngle()}) translate(0px) rotate(-360deg)}
-`;
-
-export const circularAnimation = keyframes`
-from {transform: rotate(0deg) translate(40vw) rotate(0deg);}
-to {transform: rotate(1080deg) translate(0px) rotate(-1080deg);}
+export const spiralAnimation = (initialAngle, twist) => keyframes`
+from {transform: rotate(${initialAngle}) translate(25vw) rotate(${initialAngle});}
+to {transform: rotate(${twist}) translate(0px) rotate(${twist});}
 `;

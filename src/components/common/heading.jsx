@@ -2,13 +2,20 @@ import React from "react";
 import PropTypes from "prop-types";
 import { Container } from "semantic-ui-react";
 
-import { MovingCircle } from "./styles/styles";
 import {
   MainHeader,
   SubHeader,
   MainHeaderWithAnimation,
   SubHeaderWithAnimation,
+  MovingCircle,
 } from "./styles/index";
+
+const initialAngles = ["0deg", "120deg", "240deg"];
+const twists = ["360deg", "720deg", "1080deg"];
+const circleProps = [];
+initialAngles.forEach((angle) => {
+  twists.forEach((twist) => circleProps.push({ angle, twist }));
+});
 
 export const Heading = ({
   mobile,
@@ -17,7 +24,17 @@ export const Heading = ({
   actionButton,
 }) => (
   <Container text style={{ padding: "0em" }}>
-    <MovingCircle diameter="1vw" color="white" left="50%" top="0" />
+    {circleProps.map((prop) => (
+      <MovingCircle
+        initialAngle={prop.angle}
+        twist={prop.twist}
+        diameter="1vw"
+        color="white"
+        left="50%"
+        top="40%"
+      />
+    ))}
+
     <MainHeaderWithAnimation mobile={mobile} as="h1" inverted>
       {headerText}
     </MainHeaderWithAnimation>
