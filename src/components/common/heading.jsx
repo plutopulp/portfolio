@@ -7,15 +7,8 @@ import {
   SubHeader,
   MainHeaderWithAnimation,
   SubHeaderWithAnimation,
-  MovingCircle,
 } from "./styles/index";
-
-const initialAngles = ["0deg", "120deg", "240deg"];
-const twists = ["360deg", "720deg", "1080deg"];
-const circleProps = [];
-initialAngles.forEach((angle) => {
-  twists.forEach((twist) => circleProps.push({ angle, twist }));
-});
+import { SpiralCircles } from "../home/circles";
 
 export const Heading = ({
   mobile,
@@ -24,17 +17,6 @@ export const Heading = ({
   actionButton,
 }) => (
   <Container text style={{ padding: "0em" }}>
-    {circleProps.map((prop) => (
-      <MovingCircle
-        initialAngle={prop.angle}
-        twist={prop.twist}
-        diameter="1vw"
-        color="white"
-        left="50%"
-        top="40%"
-      />
-    ))}
-
     <MainHeaderWithAnimation mobile={mobile} as="h1" inverted>
       {headerText}
     </MainHeaderWithAnimation>

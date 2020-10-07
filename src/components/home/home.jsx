@@ -1,8 +1,19 @@
 import React from "react";
-import { HomeHeading } from "./heading";
-import { HomeBody } from "./body";
+import PropTypes from "prop-types";
+import { Banner } from "./banner";
 import { ResponsiveContainer } from "../layout/containers";
+import { StaticCircles, SpiralCircles } from "./circles";
 
-export const Home = () => (
-  <ResponsiveContainer heading={<HomeHeading />} body={<HomeBody />} />
-);
+export const Home = ({ mobile }) => {
+  return (
+    <ResponsiveContainer>
+      <Banner mobile={mobile} />
+      <StaticCircles />
+      <SpiralCircles />
+    </ResponsiveContainer>
+  );
+};
+
+Home.propTypes = {
+  mobile: PropTypes.bool,
+};

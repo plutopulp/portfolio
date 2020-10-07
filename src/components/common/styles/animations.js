@@ -17,6 +17,7 @@ to {opacity: 1}
 `;
 
 export const spiralAnimation = (initialAngle, twist) => keyframes`
-from {transform: rotate(${initialAngle}) translate(25vw) rotate(${initialAngle});}
-to {transform: rotate(${twist}) translate(0px) rotate(${twist});}
+0% {transform: rotate(${initialAngle}) translate(25vw) rotate(${initialAngle});}
+50% {transform: rotate(${twist}) translate(0px) rotate(${twist});}
+100% {transform: rotate(${initialAngle}) translate(-25vw) rotate(${initialAngle});}
 `;
