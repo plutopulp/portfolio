@@ -8,7 +8,6 @@ export const Home = ({ mobile }) => {
   return (
     <ResponsiveContainer>
       <Banner mobile={mobile} />
-      <StaticCircles />
       <SpiralCircles />
     </ResponsiveContainer>
   );

@@ -27,7 +27,7 @@ const SpiralCircles = () => (
         diameter="1vw"
         color="#ffffff80"
         finalColor={prop.state.color}
-        left="49.5%"
+        left="49.2%"
         top="47%"
       />
     ))}

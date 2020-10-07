@@ -7,7 +7,7 @@ import { animationProps } from "./styleProps";
 export const ButtonWithAnimation = styled(Button)`
   opacity: 0;
 
-  animation: ${opacityAnimation} ${animationProps.durations.med}
+  animation: ${opacityAnimation} ${animationProps.durations.long}
     ${animationProps.durations.long} forwards;
 `;
 

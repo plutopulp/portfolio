@@ -35,8 +35,8 @@ export const StyledCircle = styled(Transition)`
 export const SpiralCircle = styled(Circle)`
   animation: ${({ initialAngle, twist }) =>
         spiralAnimation(initialAngle, twist)}
-      45s 0s ease-in-out both infinite,
+      90s 0s ease-in-out both infinite,
     ${({ color: initialColor, finalColor }) =>
         colorChange(initialColor, finalColor)}
-      45s 0s ease-in-out both infinite;
+      90s 0s ease-in-out both infinite;
 `;

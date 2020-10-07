@@ -27,7 +27,11 @@ export const Banner = ({ mobile }) => (
       <SubHeaderWithAnimation mobile={mobile} as="h2" inverted>
         a full-stack developer
       </SubHeaderWithAnimation>
-      <ButtonWithAnimation primary size="huge" style={{ marginRight: "0em" }}>
+      <ButtonWithAnimation
+        primary
+        size={mobile ? "medium" : "huge"}
+        style={{ marginRight: "0em" }}
+      >
         About Me
         <RotateButtonChild angle="90deg">
           <Icon name="right arrow" />

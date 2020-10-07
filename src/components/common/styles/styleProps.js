@@ -23,11 +23,11 @@ export const responsiveProps = {
 
 export const animationProps = {
   headerDrift: "15em",
-  subHeaderDrift: "45em",
+  subHeaderDrift: "60em",
   durations: {
     tiny: "50ms",
     short: "200ms",
-    med: "1s",
-    long: "2.5s",
+    med: "1.5s",
+    long: "3s",
   },
 };
