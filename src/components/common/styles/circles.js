@@ -1,5 +1,5 @@
 import styled, { css } from "styled-components";
-import { spiralAnimation } from "./animations";
+import { spiralAnimation, colorChange } from "./animations";
 
 export const Transition = styled.div`
   transition-duration: 300ms;
@@ -34,6 +34,9 @@ export const StyledCircle = styled(Transition)`
 
 export const SpiralCircle = styled(Circle)`
   animation: ${({ initialAngle, twist }) =>
-      spiralAnimation(initialAngle, twist)}
-    10s 0s ease-in-out alternate infinite both;
+        spiralAnimation(initialAngle, twist)}
+      45s 0s ease-in-out both infinite,
+    ${({ color: initialColor, finalColor }) =>
+        colorChange(initialColor, finalColor)}
+      45s 0s ease-in-out both infinite;
 `;

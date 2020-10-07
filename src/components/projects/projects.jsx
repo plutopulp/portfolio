@@ -4,5 +4,7 @@ import { ProjectsBody } from "./body";
 import { ResponsiveContainer } from "../layout/containers";
 
 export const Projects = () => (
-  <ResponsiveContainer heading={<ProjectsHeading />} body={<ProjectsBody />} />
+  <ResponsiveContainer>
+    <ProjectsBody />
+  </ResponsiveContainer>
 );
