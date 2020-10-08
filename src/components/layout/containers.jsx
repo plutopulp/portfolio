@@ -20,9 +20,8 @@ const { MediaContextProvider, Media } = createMedia({
   },
 });
 
-export const DesktopContainer = ({ children }) => {
+export const DesktopContainer = ({ children, bannerHeight }) => {
   const [fixed, handleToggle] = useToggle(false);
-
   return (
     <Media greaterThan="mobile">
       <Visibility
@@ -30,7 +29,7 @@ export const DesktopContainer = ({ children }) => {
         onBottomPassed={handleToggle}
         onBottomPassedReverse={handleToggle}
       >
-        <StyledDesktopBanner inverted vertical>
+        <StyledDesktopBanner inverted vertical height={bannerHeight}>
           <Navbar fixed={fixed} />
           {children}
         </StyledDesktopBanner>
@@ -41,9 +40,10 @@ export const DesktopContainer = ({ children }) => {
 
 DesktopContainer.propTypes = {
   children: PropTypes.node,
+  bannerHeight: PropTypes.number.isRequired,
 };
 
-export const MobileContainer = ({ children }) => {
+export const MobileContainer = ({ children, bannerHeight }) => {
   const [sidebar, handleToggle] = useToggle(false);
 
   return (
@@ -51,7 +51,7 @@ export const MobileContainer = ({ children }) => {
       <Sidebar.Pushable>
         <MobileSidebar onHide={handleToggle} open={sidebar} />
         <Sidebar.Pusher dimmed={sidebar}>
-          <StyledMobileBanner inverted vertical>
+          <StyledMobileBanner inverted vertical height={bannerHeight}>
             <Container>
               <Menu inverted pointing secondary size="large">
                 <Menu.Item onClick={handleToggle}>
@@ -70,16 +70,16 @@ export const MobileContainer = ({ children }) => {
 };
 
 MobileContainer.propTypes = {
-  children: PropTypes.node,
+  ...DesktopContainer.propTypes,
 };
 
-export const ResponsiveContainer = ({ children }) => (
+export const ResponsiveContainer = ({ children, bannerHeight }) => (
   <MediaContextProvider>
-    <DesktopContainer children={children} />
-    <MobileContainer children={children} />
+    <DesktopContainer children={children} bannerHeight={bannerHeight} />
+    <MobileContainer children={children} bannerHeight={bannerHeight} />
   </MediaContextProvider>
 );
 
 ResponsiveContainer.propTypes = {
-  children: PropTypes.node,
+  ...DesktopContainer.propTypes,
 };

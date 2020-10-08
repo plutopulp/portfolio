@@ -21,7 +21,8 @@ export const MainHeader = styled(Header)`
 export const MainHeaderWithAnimation = styled(MainHeader)`
   position: relative;
   top: -${animationProps.headerDrift};
-  animation: ${headerAnimation} ${animationProps.durations.long} forwards;
+  animation: ${headerAnimation} ${animationProps.durations.long}
+    ${animationProps.durations.med} forwards;
 `;
 
 export const SubHeader = styled(Header)`
@@ -39,5 +40,6 @@ export const SubHeader = styled(Header)`
 export const SubHeaderWithAnimation = styled(SubHeader)`
   position: relative;
   left: -${animationProps.subHeaderDrift};
-  animation: ${subHeaderAnimation} ${animationProps.durations.long} forwards;
+  animation: ${subHeaderAnimation} ${animationProps.durations.long}
+    ${animationProps.durations.med} forwards;
 `;

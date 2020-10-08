@@ -4,7 +4,7 @@ import { Segment } from "semantic-ui-react";
 const commonBannerStyles = css`
   text-align: center;
   padding: 1em 0em;
-  min-height: ${window.innerHeight}px;
+  min-height: ${(props) => props.height}px;
 `;
 export const StyledDesktopBanner = styled(Segment)`
   ${commonBannerStyles};

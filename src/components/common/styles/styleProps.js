@@ -29,5 +29,6 @@ export const animationProps = {
     short: "200ms",
     med: "1.5s",
     long: "3s",
+    ages: "6s",
   },
 };
