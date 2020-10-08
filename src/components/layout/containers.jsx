@@ -20,7 +20,7 @@ const { MediaContextProvider, Media } = createMedia({
   },
 });
 
-export const DesktopContainer = ({ children, bannerHeight }) => {
+export const DesktopContainer = ({ bannerChildren, body, bannerHeight }) => {
   const [fixed, handleToggle] = useToggle(false);
   return (
     <Media greaterThan="mobile">
@@ -31,21 +31,24 @@ export const DesktopContainer = ({ children, bannerHeight }) => {
       >
         <StyledDesktopBanner inverted vertical height={bannerHeight}>
           <Navbar fixed={fixed} />
-          {children}
+          {bannerChildren}
         </StyledDesktopBanner>
       </Visibility>
+      {React.Children.map(body, (child) =>
+        React.cloneElement(child, { mobile: false })
+      )}
     </Media>
   );
 };
 
 DesktopContainer.propTypes = {
-  children: PropTypes.node,
+  bannerChildren: PropTypes.node,
+  body: PropTypes.node.isRequired,
   bannerHeight: PropTypes.number.isRequired,
 };
 
-export const MobileContainer = ({ children, bannerHeight }) => {
+export const MobileContainer = ({ bannerChildren, body, bannerHeight }) => {
   const [sidebar, handleToggle] = useToggle(false);
-
   return (
     <Media as={Sidebar.Pushable} at="mobile">
       <Sidebar.Pushable>
@@ -59,12 +62,17 @@ export const MobileContainer = ({ children, bannerHeight }) => {
                 </Menu.Item>
               </Menu>
             </Container>
-            {React.Children.map(children, (child) =>
+
+            {/* Should consider flattening bannerChildren instead */}
+            {React.Children.map(bannerChildren.props.children, (child) =>
               React.cloneElement(child, { mobile: true })
             )}
           </StyledMobileBanner>
         </Sidebar.Pusher>
       </Sidebar.Pushable>
+      {React.Children.map(body, (child) =>
+        React.cloneElement(child, { mobile: true })
+      )}
     </Media>
   );
 };
@@ -73,10 +81,18 @@ MobileContainer.propTypes = {
   ...DesktopContainer.propTypes,
 };
 
-export const ResponsiveContainer = ({ children, bannerHeight }) => (
+export const ResponsiveContainer = ({ bannerChildren, body, bannerHeight }) => (
   <MediaContextProvider>
-    <DesktopContainer children={children} bannerHeight={bannerHeight} />
-    <MobileContainer children={children} bannerHeight={bannerHeight} />
+    <DesktopContainer
+      bannerHeight={bannerHeight}
+      bannerChildren={bannerChildren}
+      body={body}
+    />
+    <MobileContainer
+      bannerHeight={bannerHeight}
+      bannerChildren={bannerChildren}
+      body={body}
+    />
   </MediaContextProvider>
 );
 

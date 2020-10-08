@@ -11,8 +11,13 @@ import {
 } from "semantic-ui-react";
 import styled from "styled-components";
 
-export const HomeBody = (props) => (
+import { BodyHeader } from "../common/styles/index";
+
+export const HomeBody = ({ mobile }) => (
   <React.Fragment>
+    <BodyHeader as="h1" mobile={mobile}>
+      About
+    </BodyHeader>
     <Segment style={{ padding: "8em 0em" }} vertical>
       <Grid container stackable verticalAlign="middle">
         <Grid.Row>

@@ -17,18 +17,22 @@ const PlaceCenter = styled.div`
   transform: translate(-50%, -50%);
 `;
 
-export const Banner = ({ mobile }) => (
+const NameColor = styled.span`
+  color: #ac2cac;
+`;
+export const Header = ({ mobile }) => (
   <PlaceCenter>
     <Container text style={{ padding: "0em" }}>
       <MainHeaderWithAnimation mobile={mobile} as="h1" inverted>
-        Hello, I'm Yvan
+        Hello, I'm <NameColor>Yvan</NameColor>
       </MainHeaderWithAnimation>
 
       <SubHeaderWithAnimation mobile={mobile} as="h2" inverted>
         a full-stack developer
       </SubHeaderWithAnimation>
       <ButtonWithAnimation
-        primary
+        active={false}
+        inverted
         size={mobile ? "medium" : "huge"}
         style={{ marginRight: "0em" }}
       >
@@ -41,6 +45,6 @@ export const Banner = ({ mobile }) => (
   </PlaceCenter>
 );
 
-Banner.propTypes = {
+Header.propTypes = {
   mobile: PropTypes.bool,
 };

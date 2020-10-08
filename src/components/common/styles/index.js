@@ -10,8 +10,9 @@ import * as transitions from "./transitions";
 export const { StyledDesktopBanner, StyledMobileBanner } = banners;
 export const {
   MainHeader,
-  MainHeaderWithAnimation,
   SubHeader,
+  BodyHeader,
+  MainHeaderWithAnimation,
   SubHeaderWithAnimation,
 } = headers;
 

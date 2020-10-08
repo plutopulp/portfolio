@@ -6,9 +6,14 @@ import { animationProps } from "./styleProps";
 
 export const ButtonWithAnimation = styled(Button)`
   opacity: 0;
-
+  transition: background ${animationProps.durations.short}
+    ${animationProps.durations.tiny};
   animation: ${opacityAnimation} ${animationProps.durations.long}
     ${animationProps.durations.long} forwards;
+  &.ui.button:hover {
+    background: #257795aa;
+    color: #fff;
+  }
 `;
 
 export const RotateButtonChild = styled.div`

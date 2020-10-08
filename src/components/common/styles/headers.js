@@ -4,18 +4,25 @@ import { Header } from "semantic-ui-react";
 import { headerAnimation, subHeaderAnimation } from "./animations";
 import { responsiveProps, animationProps } from "./styleProps";
 
-const HeaderFont = css`
+const InvertedHeaderCommon = css`
   font-weight: 500;
   color: #ffffff;
+  text-align: center;
 `;
 
 export const MainHeader = styled(Header)`
-  ${HeaderFont};
-  margin-top: 0;
+  ${InvertedHeaderCommon};
   font-size: ${(props) =>
     props.mobile
       ? `${responsiveProps.mobile.fontSize.header}`
       : `${responsiveProps.desktop.fontSize.header}`};
+  margin-top: 0;
+`;
+
+export const BodyHeader = styled(MainHeader)`
+  color: #333;
+  margin-top: 1em;
+  font-weight: 700;
 `;
 
 export const MainHeaderWithAnimation = styled(MainHeader)`
@@ -26,7 +33,7 @@ export const MainHeaderWithAnimation = styled(MainHeader)`
 `;
 
 export const SubHeader = styled(Header)`
-  ${HeaderFont};
+  ${InvertedHeaderCommon};
   font-size: ${(props) =>
     props.mobile
       ? `${responsiveProps.mobile.fontSize.subHeader}`
