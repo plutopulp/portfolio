@@ -6,6 +6,11 @@ from {transform: translateY(0)}
 to {transform: translateY(${animationProps.headerDrift})}
 `;
 
+export const bodyAnimation = keyframes`
+from {transform: translateX(0)}
+from {transform: translateX(${animationProps.bodyDrift})}
+`;
+
 export const subHeaderAnimation = keyframes`
 from {transform: translateX(0)}
 to {transform: translateX(${animationProps.subHeaderDrift})}

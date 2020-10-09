@@ -24,6 +24,7 @@ export const responsiveProps = {
 export const animationProps = {
   headerDrift: "15em",
   subHeaderDrift: "60em",
+  bodyDrift: "5em",
   durations: {
     tiny: "50ms",
     short: "200ms",

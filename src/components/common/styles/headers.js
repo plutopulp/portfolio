@@ -1,7 +1,11 @@
 import styled, { css } from "styled-components";
 import { Header } from "semantic-ui-react";
 
-import { headerAnimation, subHeaderAnimation } from "./animations";
+import {
+  headerAnimation,
+  subHeaderAnimation,
+  bodyAnimation,
+} from "./animations";
 import { responsiveProps, animationProps } from "./styleProps";
 
 const InvertedHeaderCommon = css`
@@ -21,8 +25,10 @@ export const MainHeader = styled(Header)`
 
 export const BodyHeader = styled(MainHeader)`
   color: #333;
-  margin-top: 1em;
   font-weight: 700;
+  margin-bottom: 2em;
+  transform: translateX(${({ animate }) => (animate ? "0" : "-5em")});
+  transition: transform 1s;
 `;
 
 export const MainHeaderWithAnimation = styled(MainHeader)`
