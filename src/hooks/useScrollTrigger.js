@@ -2,7 +2,7 @@ import { element } from "prop-types";
 import React from "react";
 
 export const useScrollTrigger = (initialState) => {
-  const [showElement, setShowElement] = React.useState(initialState);
+  const [triggerElement, setShowElement] = React.useState(initialState);
   const elementRef = React.useRef(null);
 
   React.useLayoutEffect(() => {
@@ -16,5 +16,5 @@ export const useScrollTrigger = (initialState) => {
     window.addEventListener("scroll", onScroll);
     return () => window.removeEventListener("scroll", onScroll);
   }, []);
-  return { showElement, elementRef };
+  return [triggerElement, elementRef];
 };

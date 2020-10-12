@@ -20,6 +20,7 @@ const PlaceCenter = styled.div`
 const NameColor = styled.span`
   color: #ac2cac;
 `;
+
 export const Header = ({ mobile }) => (
   <PlaceCenter>
     <Container text style={{ padding: "0em" }}>

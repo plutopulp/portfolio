@@ -27,8 +27,6 @@ export const BodyHeader = styled(MainHeader)`
   color: #333;
   font-weight: 700;
   margin-bottom: 2em;
-  transform: translateX(${({ animate }) => (animate ? "0" : "-5em")});
-  transition: transform 1s;
 `;
 
 export const MainHeaderWithAnimation = styled(MainHeader)`

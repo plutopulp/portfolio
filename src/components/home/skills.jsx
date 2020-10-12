@@ -10,6 +10,7 @@ import {
 } from "semantic-ui-react";
 import styled from "styled-components";
 
+import { OpacityAndTranslateX } from "../common/styles/index";
 import { skillsContent } from "./skillsContent";
 
 const SkillWrapper = styled.div`
@@ -47,15 +48,17 @@ export const Skills = () => (
   </Segment>
 );
 
-const SkillsGrid = ({ skillSets }) => (
-  <Grid celled="internally" columns="equal" stackable>
-    <Grid.Row textAlign="center">
-      {skillSets.map((skillSet) => (
-        <SkillsCell title={skillSet.title} skills={skillSet.skills} />
-      ))}
-    </Grid.Row>
-  </Grid>
-);
+const SkillsGrid = ({ skillSets }) => {
+  return (
+    <Grid celled="internally" columns="equal" stackable>
+      <Grid.Row textAlign="center">
+        {skillSets.map((skillSet) => (
+          <SkillsCell title={skillSet.title} skills={skillSet.skills} />
+        ))}
+      </Grid.Row>
+    </Grid>
+  );
+};
 
 const SkillsCell = ({ title, skills }) => (
   <Grid.Column>

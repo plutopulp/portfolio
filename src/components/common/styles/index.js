@@ -17,5 +17,10 @@ export const {
 } = headers;
 
 export const { ButtonWithAnimation, RotateButtonChild } = buttons;
-export const { RotateChildOnHover } = transitions;
+export const {
+  TranslateX,
+  OpacityTransition,
+  RotateChildOnHover,
+  OpacityAndTranslateX,
+} = transitions;
 export const { Circle, SpiralCircle } = circles;
