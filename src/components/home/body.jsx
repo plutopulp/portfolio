@@ -4,7 +4,7 @@ import { Segment, Grid, Header, Container, List } from "semantic-ui-react";
 import { About } from "../about/about";
 import { Skills } from "../skills/skills";
 
-export const HomeBody = ({ mobile }) => (
+export const Body = ({ mobile }) => (
   <React.Fragment>
     <About mobile={mobile} />
     <Skills mobile={mobile} />

@@ -7,8 +7,6 @@ import { useToggle } from "../../hooks/useToggle";
 import Navbar from "./navbar";
 import { MobileSidebar } from "./sidebar";
 
-import { LandingSegment } from "../common/styles/index";
-
 const { MediaContextProvider, Media } = createMedia({
   breakpoints: {
     mobile: 0,
@@ -17,7 +15,8 @@ const { MediaContextProvider, Media } = createMedia({
   },
 });
 
-export const DesktopContainer = ({ bannerChildren, body, bannerHeight }) => {
+// Split Landing from the rest as inject Navbar/Sidebar into Landing
+export const DesktopContainer = ({ landing, body }) => {
   const [fixed, handleToggle] = useToggle(false);
   return (
     <Media greaterThan="mobile">
@@ -26,10 +25,12 @@ export const DesktopContainer = ({ bannerChildren, body, bannerHeight }) => {
         onBottomPassed={handleToggle}
         onBottomPassedReverse={handleToggle}
       >
-        <LandingSegment inverted vertical height={bannerHeight}>
+        {/* Clone landing and pass Navbar as child */}
+        {React.cloneElement(
+          landing,
+          { mobile: false },
           <Navbar fixed={fixed} />
-          {bannerChildren}
-        </LandingSegment>
+        )}
       </Visibility>
       {React.Children.map(body, (child) =>
         React.cloneElement(child, { mobile: false })
@@ -39,19 +40,21 @@ export const DesktopContainer = ({ bannerChildren, body, bannerHeight }) => {
 };
 
 DesktopContainer.propTypes = {
-  bannerChildren: PropTypes.node,
+  landing: PropTypes.node.isRequired,
   body: PropTypes.node.isRequired,
-  bannerHeight: PropTypes.number.isRequired,
 };
 
-export const MobileContainer = ({ bannerChildren, body, bannerHeight }) => {
+export const MobileContainer = ({ landing, body }) => {
   const [sidebar, handleToggle] = useToggle(false);
   return (
     <Media as={Sidebar.Pushable} at="mobile">
       <Sidebar.Pushable>
         <MobileSidebar onHide={handleToggle} open={sidebar} />
         <Sidebar.Pusher dimmed={sidebar}>
-          <LandingSegment inverted vertical height={bannerHeight}>
+          {/* Clone landing and pass Sidebar as child */}
+          {React.cloneElement(
+            landing,
+            { mobile: true },
             <Container>
               <Menu inverted pointing secondary size="large">
                 <Menu.Item onClick={handleToggle}>
@@ -59,12 +62,7 @@ export const MobileContainer = ({ bannerChildren, body, bannerHeight }) => {
                 </Menu.Item>
               </Menu>
             </Container>
-
-            {/* Should consider flattening bannerChildren instead */}
-            {React.Children.map(bannerChildren.props.children, (child) =>
-              React.cloneElement(child, { mobile: true })
-            )}
-          </LandingSegment>
+          )}
         </Sidebar.Pusher>
       </Sidebar.Pushable>
       {React.Children.map(body, (child) =>
@@ -78,18 +76,10 @@ MobileContainer.propTypes = {
   ...DesktopContainer.propTypes,
 };
 
-export const ResponsiveContainer = ({ bannerChildren, body, bannerHeight }) => (
+export const ResponsiveContainer = ({ landing, body }) => (
   <MediaContextProvider>
-    <DesktopContainer
-      bannerHeight={bannerHeight}
-      bannerChildren={bannerChildren}
-      body={body}
-    />
-    <MobileContainer
-      bannerHeight={bannerHeight}
-      bannerChildren={bannerChildren}
-      body={body}
-    />
+    <DesktopContainer landing={landing} body={body} />
+    <MobileContainer landing={landing} body={body} />
   </MediaContextProvider>
 );
 

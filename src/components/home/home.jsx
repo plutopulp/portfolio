@@ -1,26 +1,12 @@
 import React from "react";
 import PropTypes from "prop-types";
-import { Header } from "../landing/header";
 import { ResponsiveContainer } from "../layout/containers";
-import { SpiralCircles } from "../landing/circles";
-import { useWindowSize } from "../../hooks/useWindowSize";
-import { HomeBody } from "./body";
+import { Body } from "./body";
+import { Landing } from "../landing/landing";
 
-export const Home = ({ mobile }) => {
-  const windowSize = useWindowSize();
-  return (
-    <ResponsiveContainer
-      bannerHeight={windowSize.height}
-      bannerChildren={
-        <React.Fragment>
-          <Header mobile={mobile} />
-          <SpiralCircles />
-        </React.Fragment>
-      }
-      body={<HomeBody />}
-    />
-  );
-};
+export const Home = () => (
+  <ResponsiveContainer landing={<Landing />} body={<Body />} />
+);
 
 Home.propTypes = {
   mobile: PropTypes.bool,

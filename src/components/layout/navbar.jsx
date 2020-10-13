@@ -1,8 +1,6 @@
 import React from "react";
-import styled from "styled-components";
-import { Container, Menu, Button } from "semantic-ui-react";
-import { NavLink } from "react-router-dom";
-import { routes } from "../../routes";
+import { Container, Menu } from "semantic-ui-react";
+import AnchorLink from "react-anchor-link-smooth-scroll";
 
 const NavbarContainer = ({ fixed }) => {
   // On refresh - get the current active item from url
@@ -34,38 +32,45 @@ const Navbar = ({ fixed, activeItem, handleClick }) => {
       size="large"
     >
       <Container>
-        <NavLink to={routes.pages.home}>
+        <AnchorLink href="#landing">
           <Menu.Item
             as="a"
             name="home"
             active={activeItem === "home"}
             onClick={handleClick}
           />
-        </NavLink>
-        <NavLink to={routes.pages.projects}>
+        </AnchorLink>
+        <AnchorLink href="#about">
+          <Menu.Item
+            as="a"
+            name="about"
+            active={activeItem === "about"}
+            onClick={handleClick}
+          />
+        </AnchorLink>
+        <AnchorLink href="#skills">
+          <Menu.Item
+            as="a"
+            name="skills"
+            active={activeItem === "skills"}
+            onClick={handleClick}
+          />
+        </AnchorLink>
+
+        <AnchorLink href="#projects">
           <Menu.Item
             as="a"
             name="projects"
             active={activeItem === "projects"}
             onClick={handleClick}
           />
-        </NavLink>
-        <NavLink to={routes.pages.snippets}>
-          <Menu.Item
-            as="a"
-            name="snippets"
-            active={activeItem === "snippets"}
-            onClick={handleClick}
-          />
-        </NavLink>
-        <NavLink to={routes.pages.resume}>
-          <Menu.Item
-            as="a"
-            name="resume"
-            active={activeItem === "resume"}
-            onClick={handleClick}
-          />
-        </NavLink>
+        </AnchorLink>
+        <Menu.Item
+          as="a"
+          name="resume"
+          active={activeItem === "resume"}
+          onClick={handleClick}
+        />
       </Container>
     </Menu>
   );
