@@ -20,8 +20,9 @@ initialStates.forEach((state) => {
 
 const SpiralCircles = () => (
   <React.Fragment>
-    {spiralCircleProps.map((prop) => (
+    {spiralCircleProps.map((prop, index) => (
       <SpiralCircle
+        key={index}
         initialAngle={prop.state.angle}
         twist={prop.twist}
         diameter="1vw"

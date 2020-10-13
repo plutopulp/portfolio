@@ -11,8 +11,8 @@ export const ButtonWithAnimation = styled(Button)`
   animation: ${opacityAnimation} ${animationProps.durations.long}
     ${animationProps.durations.long} forwards;
   &.ui.button:hover {
-    background: #257795aa;
-    color: #fff;
+    background: ${({ bgColor }) => bgColor};
+    color: ${({ color }) => color};
   }
 `;
 

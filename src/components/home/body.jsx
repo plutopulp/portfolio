@@ -1,28 +1,13 @@
 import React from "react";
-import {
-  Segment,
-  Grid,
-  Header,
-  Image,
-  Button,
-  Container,
-  Divider,
-  List,
-} from "semantic-ui-react";
-import styled from "styled-components";
+import { Segment, Grid, Header, Container, List } from "semantic-ui-react";
 
-import { BodyHeader } from "../common/styles/index";
-import { About } from "./about";
-import { Skills } from "./skills";
-
-const Paragraph = styled.p`
-  font-size: 1.33em;
-`;
+import { About } from "../about/about";
+import { Skills } from "../skills/skills";
 
 export const HomeBody = ({ mobile }) => (
   <React.Fragment>
     <About mobile={mobile} />
-    <Skills />
+    <Skills mobile={mobile} />
 
     <Segment inverted vertical style={{ padding: "5em 0em" }}>
       <Container>

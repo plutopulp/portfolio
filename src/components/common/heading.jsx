@@ -3,12 +3,9 @@ import PropTypes from "prop-types";
 import { Container } from "semantic-ui-react";
 
 import {
-  MainHeader,
-  SubHeader,
   MainHeaderWithAnimation,
   SubHeaderWithAnimation,
 } from "./styles/index";
-import { SpiralCircles } from "../home/circles";
 
 export const Heading = ({
   mobile,

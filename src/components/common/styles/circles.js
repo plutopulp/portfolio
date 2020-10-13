@@ -1,4 +1,4 @@
-import styled, { css } from "styled-components";
+import styled from "styled-components";
 import { spiralAnimation, colorChange } from "./animations";
 
 export const Transition = styled.div`

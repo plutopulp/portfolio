@@ -7,10 +7,7 @@ import { useToggle } from "../../hooks/useToggle";
 import Navbar from "./navbar";
 import { MobileSidebar } from "./sidebar";
 
-import {
-  StyledDesktopBanner,
-  StyledMobileBanner,
-} from "../common/styles/index";
+import { LandingSegment } from "../common/styles/index";
 
 const { MediaContextProvider, Media } = createMedia({
   breakpoints: {
@@ -29,10 +26,10 @@ export const DesktopContainer = ({ bannerChildren, body, bannerHeight }) => {
         onBottomPassed={handleToggle}
         onBottomPassedReverse={handleToggle}
       >
-        <StyledDesktopBanner inverted vertical height={bannerHeight}>
+        <LandingSegment inverted vertical height={bannerHeight}>
           <Navbar fixed={fixed} />
           {bannerChildren}
-        </StyledDesktopBanner>
+        </LandingSegment>
       </Visibility>
       {React.Children.map(body, (child) =>
         React.cloneElement(child, { mobile: false })
@@ -54,7 +51,7 @@ export const MobileContainer = ({ bannerChildren, body, bannerHeight }) => {
       <Sidebar.Pushable>
         <MobileSidebar onHide={handleToggle} open={sidebar} />
         <Sidebar.Pusher dimmed={sidebar}>
-          <StyledMobileBanner inverted vertical height={bannerHeight}>
+          <LandingSegment inverted vertical height={bannerHeight}>
             <Container>
               <Menu inverted pointing secondary size="large">
                 <Menu.Item onClick={handleToggle}>
@@ -67,7 +64,7 @@ export const MobileContainer = ({ bannerChildren, body, bannerHeight }) => {
             {React.Children.map(bannerChildren.props.children, (child) =>
               React.cloneElement(child, { mobile: true })
             )}
-          </StyledMobileBanner>
+          </LandingSegment>
         </Sidebar.Pusher>
       </Sidebar.Pushable>
       {React.Children.map(body, (child) =>

@@ -1,8 +1,8 @@
 import React from "react";
 import PropTypes from "prop-types";
 import styled from "styled-components";
-import { Container } from "semantic-ui-react";
-import { Icon } from "semantic-ui-react";
+import { Container, Icon } from "semantic-ui-react";
+import AnchorLink from "react-anchor-link-smooth-scroll";
 import {
   MainHeaderWithAnimation,
   SubHeaderWithAnimation,
@@ -31,17 +31,20 @@ export const Header = ({ mobile }) => (
       <SubHeaderWithAnimation mobile={mobile} as="h2" inverted>
         a full-stack developer
       </SubHeaderWithAnimation>
-      <ButtonWithAnimation
-        active={false}
-        inverted
-        size={mobile ? "medium" : "huge"}
-        style={{ marginRight: "0em" }}
-      >
-        About Me
-        <RotateButtonChild angle="90deg">
-          <Icon name="right arrow" />
-        </RotateButtonChild>
-      </ButtonWithAnimation>
+      <AnchorLink href="#about">
+        <ButtonWithAnimation
+          inverted
+          size={mobile ? "medium" : "huge"}
+          style={{ marginRight: "0em" }}
+          bgColor="#257795aa"
+          color="#fff"
+        >
+          About Me
+          <RotateButtonChild angle="90deg">
+            <Icon name="right arrow" />
+          </RotateButtonChild>
+        </ButtonWithAnimation>
+      </AnchorLink>
     </Container>
   </PlaceCenter>
 );

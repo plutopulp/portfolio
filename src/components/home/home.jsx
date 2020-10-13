@@ -1,8 +1,8 @@
 import React from "react";
 import PropTypes from "prop-types";
-import { Header } from "./header";
+import { Header } from "../landing/header";
 import { ResponsiveContainer } from "../layout/containers";
-import { SpiralCircles } from "./circles";
+import { SpiralCircles } from "../landing/circles";
 import { useWindowSize } from "../../hooks/useWindowSize";
 import { HomeBody } from "./body";
 
