@@ -19,5 +19,5 @@ export const useHover = (initialState) => {
       };
     }
   }, []);
-  return [elementRef, hovered];
+  return [hovered, elementRef];
 };
