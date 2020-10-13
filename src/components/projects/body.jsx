@@ -5,8 +5,9 @@ import { Card } from "semantic-ui-react";
 import { ProjectCard } from "./projectCard";
 
 import { projectsContent } from "./content";
+import { Grid } from "./grid";
 
-const ProjectsBody = () => <ProjectCardGroup />;
+const ProjectsBody = () => <Grid />;
 
 const ProjectCardGroup = () => (
   <Card.Group stackable itemsPerRow={2} centered>

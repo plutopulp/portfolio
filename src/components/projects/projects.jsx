@@ -1,10 +1,11 @@
 import React from "react";
-import { ProjectsHeading } from "./heading";
 import { ProjectsBody } from "./body";
-import { ResponsiveContainer } from "../layout/containers";
+import { MainSegmentBlue } from "../common/styles/index";
+import { Header } from "../common/headers";
 
-export const Projects = () => (
-  <ResponsiveContainer>
+export const Projects = ({ mobile }) => (
+  <MainSegmentBlue id="projects" vertical mobile={mobile}>
+    <Header title="PROJECTS" mobile={mobile} />
     <ProjectsBody />
-  </ResponsiveContainer>
+  </MainSegmentBlue>
 );

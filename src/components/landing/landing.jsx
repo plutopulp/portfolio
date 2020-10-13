@@ -8,7 +8,7 @@ import { LandingSegment } from "../common/styles/index";
 export const Landing = ({ children, mobile }) => {
   const windowSize = useWindowSize();
   return (
-    <LandingSegment inverted vertical height={windowSize.height}>
+    <LandingSegment inverted vertical height={windowSize.height} id="landing">
       {children}
       <Header mobile={mobile} />
       <SpiralCircles />

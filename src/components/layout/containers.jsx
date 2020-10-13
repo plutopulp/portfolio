@@ -32,7 +32,8 @@ export const DesktopContainer = ({ landing, body }) => {
           <Navbar fixed={fixed} />
         )}
       </Visibility>
-      {React.Children.map(body, (child) =>
+      {/* Need children of React.Fragment -> body.props.children */}
+      {React.Children.map(body.props.children, (child) =>
         React.cloneElement(child, { mobile: false })
       )}
     </Media>
@@ -65,7 +66,7 @@ export const MobileContainer = ({ landing, body }) => {
           )}
         </Sidebar.Pusher>
       </Sidebar.Pushable>
-      {React.Children.map(body, (child) =>
+      {React.Children.map(body.props.children, (child) =>
         React.cloneElement(child, { mobile: true })
       )}
     </Media>
