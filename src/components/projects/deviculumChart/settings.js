@@ -32,6 +32,8 @@ export const datasets = [
 
 export const options = {
   responsive: true,
+  tooltips: { enabled: false },
+  hover: { mode: null },
   aspectRatio: 1,
   scales: {
     xAxes: [{ stacked: true }],
