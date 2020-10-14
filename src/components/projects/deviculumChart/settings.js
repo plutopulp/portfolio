@@ -34,7 +34,7 @@ export const options = {
   responsive: true,
   tooltips: { enabled: false },
   hover: { mode: null },
-  aspectRatio: 1,
+  aspectRatio: 1.11,
   scales: {
     xAxes: [{ stacked: true }],
     yAxes: [
