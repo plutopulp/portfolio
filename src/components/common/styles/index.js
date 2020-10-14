@@ -15,7 +15,7 @@ export const {
   SubHeaderWithAnimation,
 } = headers;
 
-export const { ButtonWithAnimation, RotateButtonChild } = buttons;
+export const { StyledButton, ButtonWithAnimation, RotateButtonChild } = buttons;
 export const {
   TranslateX,
   OpacityTransition,

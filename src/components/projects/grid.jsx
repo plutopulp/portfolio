@@ -1,7 +1,7 @@
 import React from "react";
 import PropTypes from "prop-types";
 import { Grid } from "semantic-ui-react";
-import { Tile } from "./tile";
+import { Tile } from "./tile/tile";
 
 const ProjectGrid = () => {
   return (

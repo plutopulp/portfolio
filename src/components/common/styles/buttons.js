@@ -4,6 +4,16 @@ import { Button } from "semantic-ui-react";
 import { opacityAnimation } from "./animations";
 import { animationProps } from "./styleProps";
 
+export const StyledButton = styled(Button)`
+  &.ui.button {
+    background: #257795cc;
+    color: #fff;
+    transition: background 200ms 50ms;
+  }
+  &.ui.button:hover {
+    background: #257795ee;
+  }
+`;
 export const ButtonWithAnimation = styled(Button)`
   opacity: 0;
   transition: background ${animationProps.durations.short}

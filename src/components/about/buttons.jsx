@@ -1,19 +1,10 @@
 import React from "react";
 import PropTypes from "prop-types";
-import { Grid, Button, Icon } from "semantic-ui-react";
+import { Grid, Icon } from "semantic-ui-react";
 import styled from "styled-components";
 import AnchorLink from "react-anchor-link-smooth-scroll";
 
-const StyledButton = styled(Button)`
-  transition: background 200ms 50ms;
-  &.ui.button {
-    background: #257795dd;
-    color: #ffffff;
-  }
-  &.ui.button:hover {
-    background: #257795ff;
-  }
-`;
+import { StyledButton } from "../common/styles/index";
 
 const RotateIcon = styled.div`
   margin-left: 0.25em;
