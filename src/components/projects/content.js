@@ -32,10 +32,22 @@ const deviculumContent = {
   },
   tileImage: null,
   sliderMedia: [
-    { source: "../media/images/deviculum.png" },
-    { source: "../media/images/deviculum.png" },
-    { source: "../media/images/deviculum.png" },
-    { source: "../media/images/videos/deviculum.mp4" },
+    {
+      source: "../media/images/deviculum-curriculum.png",
+      type: "image",
+      padding: "20%",
+    },
+    {
+      source: "../media/images/deviculum-taxonomy.png",
+      type: "image",
+      padding: "15%",
+    },
+    {
+      source: "../media/images/deviculum-taxonomy-overlap2.png",
+      type: "image",
+      padding: "0%",
+    },
+    { source: "../media/videos/deviculum.mp4", type: "video", padding: "10%" },
   ],
 };
 

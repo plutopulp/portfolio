@@ -6,19 +6,13 @@ import styled from "styled-components";
 import { Grid } from "./grid";
 import { Header } from "../common/headers";
 
-import { MainSegmentWhite } from "../common/styles/index";
+import { MainContainer, MainSegmentWhite } from "../common/styles/index";
 import { skillsContent } from "./skillsContent";
-
-const StyledContainer = styled(Container)`
-  &.ui.container {
-    margin-top: 4em;
-  }
-`;
 
 export const Skills = ({ mobile }) => (
   <MainSegmentWhite vertical id="skills">
     <Header title="SKILLS" mobile={mobile} />
-    <StyledContainer>
+    <MainContainer>
       <Grid
         skillSets={[
           { title: "Languages", skills: skillsContent.languages },
@@ -35,7 +29,7 @@ export const Skills = ({ mobile }) => (
           { title: "Other", skills: skillsContent.other },
         ]}
       />
-    </StyledContainer>
+    </MainContainer>
   </MainSegmentWhite>
 );
 

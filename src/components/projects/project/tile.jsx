@@ -19,7 +19,7 @@ export const Tile = ({ project }) => {
   const [modal, toggleModal] = useToggle(false);
   return (
     <TileWrapper ref={tileRef} hovered={hovered}>
-      <StyledHeader as="h2" hovered={hovered} initialY="0%" finalY="30%">
+      <StyledHeader as="h1" hovered={hovered} initialY="0%" finalY="25%">
         {project.title}
       </StyledHeader>
       <StyledSubHeader as="h3" hovered={hovered} initialY="0%" finalY="40%">
@@ -28,7 +28,7 @@ export const Tile = ({ project }) => {
       <StyledSegment hovered={hovered}>
         <TileImage title={project.title} src={project.tileImage} />
       </StyledSegment>
-      <ButtonWrapper hovered={hovered} initialy="0%" finalY="-500%">
+      <ButtonWrapper hovered={hovered} initialy="0%" finalY="-400%">
         <StyledButton onClick={toggleModal}>Learn More</StyledButton>
       </ButtonWrapper>
       <Modal open={modal} toggle={toggleModal} project={project} />

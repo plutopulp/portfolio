@@ -5,8 +5,10 @@ import styled from "styled-components";
 import AwesomeSlider from "react-awesome-slider";
 import "react-awesome-slider/dist/styles.css";
 import "react-awesome-slider/dist/custom-animations/cube-animation.css";
+import { TransformWrapper, TransformComponent } from "react-zoom-pan-pinch";
 
 import { Card, Label, Image, Button, Icon } from "semantic-ui-react";
+import { Slider } from "./slider";
 
 import { DeviculumChart } from "../deviculumChart/deviculumChart";
 
@@ -15,7 +17,7 @@ const ProjectCard = ({ project }) => {
 
   return (
     <Card fluid>
-      <AwesomeSlider animation="cubeAnimation" media={sliderMedia} />
+      <Slider media={sliderMedia} />
       <Card.Content>
         <Card.Header>{title}</Card.Header>
         <Card.Description>{description}</Card.Description>
