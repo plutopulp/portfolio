@@ -2,6 +2,7 @@ import React from "react";
 import PropTypes from "prop-types";
 import uuid from "react-uuid";
 import styled from "styled-components";
+import Tree from "react-d3-tree";
 
 import { Card, Label, Image, Button, Icon } from "semantic-ui-react";
 import { DeviculumChart } from "../deviculumChart/deviculumChart";
@@ -14,7 +15,13 @@ const StyledCard = styled(Card)`
   }
 `;
 const ProjectCard = ({ project }) => {
-  const { title, description, technologies, learnings } = project;
+  const {
+    title,
+    description,
+    technologies,
+    learnings,
+    implementationTree,
+  } = project;
 
   return (
     <StyledCard fluid>
@@ -35,6 +42,9 @@ const ProjectCard = ({ project }) => {
           <Icon name="github" size="big" color="black" />
         </Button>
       </Card.Content>
+      <div id="treeWrapper" style={{ width: "50em", height: "50em" }}>
+        <Tree data={implementationTree} />
+      </div>
     </StyledCard>
   );
 };

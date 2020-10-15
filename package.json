@@ -12,6 +12,7 @@
     "react": "^16.13.1",
     "react-anchor-link-smooth-scroll": "^1.0.12",
     "react-awesome-slider": "^4.1.0",
+    "react-d3-tree": "^1.16.1",
     "react-dom": "^16.13.1",
     "react-pdfobject": "^1.1.1",
     "react-scripts": "3.4.3",
