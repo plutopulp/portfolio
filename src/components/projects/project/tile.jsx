@@ -1,4 +1,5 @@
 import React from "react";
+import PropTypes from "prop-types";
 import { Image } from "semantic-ui-react";
 
 import { DeviculumChart } from "../deviculumChart/deviculumChart";
@@ -36,5 +37,14 @@ export const Tile = ({ project }) => {
   );
 };
 
+Tile.propTypes = {
+  project: PropTypes.object.isRequired,
+};
+
 const TileImage = ({ title, src }) =>
   title === "Deviculum" ? <DeviculumChart /> : <Image src={src} />;
+
+TileImage.propTypes = {
+  title: PropTypes.string.isRequired,
+  src: PropTypes.string.isRequired,
+};

@@ -2,22 +2,22 @@ import React from "react";
 import PropTypes from "prop-types";
 import uuid from "react-uuid";
 import styled from "styled-components";
-import AwesomeSlider from "react-awesome-slider";
-import "react-awesome-slider/dist/styles.css";
-import "react-awesome-slider/dist/custom-animations/cube-animation.css";
-import { TransformWrapper, TransformComponent } from "react-zoom-pan-pinch";
 
 import { Card, Label, Image, Button, Icon } from "semantic-ui-react";
-import { Slider } from "./slider";
-
 import { DeviculumChart } from "../deviculumChart/deviculumChart";
 
+const StyledCard = styled(Card)`
+  &.ui.card {
+    margin-top: 6em;
+    border-radius: 0;
+    border: solid black 0px;
+  }
+`;
 const ProjectCard = ({ project }) => {
-  const { title, description, technologies, learnings, sliderMedia } = project;
+  const { title, description, technologies, learnings } = project;
 
   return (
-    <Card fluid>
-      <Slider media={sliderMedia} />
+    <StyledCard fluid>
       <Card.Content>
         <Card.Header>{title}</Card.Header>
         <Card.Description>{description}</Card.Description>
@@ -35,7 +35,7 @@ const ProjectCard = ({ project }) => {
           <Icon name="github" size="big" color="black" />
         </Button>
       </Card.Content>
-    </Card>
+    </StyledCard>
   );
 };
 

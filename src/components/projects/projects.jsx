@@ -1,5 +1,5 @@
 import React from "react";
-import { Image } from "semantic-ui-react";
+import PropTypes from "prop-types";
 import { Grid } from "./grid";
 import { MainContainer, MainSegmentBlue } from "../common/styles/index";
 import { Header } from "../common/headers";
@@ -12,3 +12,7 @@ export const Projects = ({ mobile }) => (
     </MainContainer>
   </MainSegmentBlue>
 );
+
+Projects.propTypes = {
+  mobile: PropTypes.bool,
+};

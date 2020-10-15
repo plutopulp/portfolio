@@ -35,19 +35,19 @@ const deviculumContent = {
     {
       source: "../media/images/deviculum-curriculum.png",
       type: "image",
-      padding: "20%",
+      padding: "22%",
     },
     {
       source: "../media/images/deviculum-taxonomy.png",
       type: "image",
-      padding: "15%",
+      padding: "18%",
     },
     {
       source: "../media/images/deviculum-taxonomy-overlap2.png",
       type: "image",
       padding: "0%",
     },
-    { source: "../media/videos/deviculum.mp4", type: "video", padding: "10%" },
+    { source: "../media/videos/deviculum.mp4", type: "video", padding: "5%" },
   ],
 };
 
@@ -80,10 +80,22 @@ const taskmaContent = {
   },
   tileImage: "../media/images/taskma.png",
   sliderMedia: [
-    { source: "../media/images/deviculum.png" },
-    { source: "../media/images/deviculum.png" },
-    { source: "../media/images/deviculum.png" },
-    { source: "../media/videos/taskma.mp4" },
+    {
+      source: "../media/images/deviculum-curriculum.png",
+      type: "image",
+      padding: "22%",
+    },
+    {
+      source: "../media/images/deviculum-taxonomy.png",
+      type: "image",
+      padding: "18%",
+    },
+    {
+      source: "../media/images/deviculum-taxonomy-overlap2.png",
+      type: "image",
+      padding: "0%",
+    },
+    { source: "../media/videos/taskma.mp4", type: "video", padding: "5%" },
   ],
 };
 
