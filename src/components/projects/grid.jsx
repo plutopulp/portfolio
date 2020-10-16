@@ -1,16 +1,15 @@
 import React from "react";
-import PropTypes from "prop-types";
 import { Grid } from "semantic-ui-react";
-import { Tile } from "./project/tile";
+import { Tile } from "./common/tile";
 import { projectsContent } from "./content/allContent";
 
 const ProjectGrid = () => {
   return (
     <Grid container columns={2} stackable>
       <Grid.Row columns="equal" textAlign="center">
-        {projectsContent.map((project) => (
+        {projectsContent.map((project, index) => (
           <Grid.Column>
-            <Tile project={project} />
+            <Tile project={project} key={index} />
           </Grid.Column>
         ))}
       </Grid.Row>

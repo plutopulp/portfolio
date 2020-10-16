@@ -21,7 +21,7 @@ export const content = {
     "Custom Hooks",
   ],
   implementationTree: tree,
-  urls: {
+  hrefs: {
     repo: {
       frontend: "https://github.com/Aviemusca/task-manager-frontend",
       backend: "https://github.com/Aviemusca/task-manager-backend",

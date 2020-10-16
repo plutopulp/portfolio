@@ -2,7 +2,7 @@ import { tree } from "./implementationTree";
 
 export const content = {
   title: "Deviculum",
-  meta: "",
+  meta: "Curriculum learning outcome analysis",
   description:
     "A web application to help educators and academics develop curricula." +
     "Users associate learning outcomes/objectives to curriculum modules which are parsed using a natural language processing toolkit in order to identify verbs and return a complexity breakdown of the curriculum within their chosen taxonomy.",
@@ -26,13 +26,19 @@ export const content = {
     "Chord Charts",
   ],
   implementationTree: tree,
-  urls: {
-    repo: {
-      frontend: null,
-      backend: "https://github.com/Aviemusca/curriculum-dev",
+  anchors: [
+    { name: "Frontend", href: null, type: "github" },
+    {
+      name: "Backend",
+      href: "https://github.com/Aviemusca/curriculum-dev",
+      type: "github",
     },
-    live: "https://deviculum.herokuapp.com/",
-  },
+    {
+      name: "Live Site",
+      href: "https://deviculum.herokuapp.com/",
+      type: "website",
+    },
+  ],
   tileImage: null,
   sliderMedia: [
     {

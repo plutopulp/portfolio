@@ -2,7 +2,7 @@ import React from "react";
 import PropTypes from "prop-types";
 import { Modal } from "semantic-ui-react";
 import { Slider } from "./slider";
-import { Card } from "./card";
+import { Card } from "./card/card";
 
 const ProjectModal = ({ open, toggle, project }) => {
   return (
