@@ -1,4 +1,5 @@
 import React from "react";
+import styled from "styled-components";
 import { Container, Menu } from "semantic-ui-react";
 import AnchorLink from "react-anchor-link-smooth-scroll";
 
@@ -22,11 +23,20 @@ const NavbarContainer = ({ fixed }) => {
   );
 };
 
+const StyledMenu = styled(Menu)`
+  &.ui.secondary.inverted.pointing.menu {
+    margin: 0;
+    border-style: none;
+  }
+  &.ui.menu {
+    background-color: #2f303a;
+  }
+`;
 const Navbar = ({ fixed, activeItem, handleClick }) => {
   return (
-    <Menu
+    <StyledMenu
       fixed={fixed ? "top" : null}
-      inverted={!fixed}
+      inverted
       pointing={!fixed}
       secondary={!fixed}
       size="large"
@@ -72,7 +82,7 @@ const Navbar = ({ fixed, activeItem, handleClick }) => {
           onClick={handleClick}
         />
       </Container>
-    </Menu>
+    </StyledMenu>
   );
 };
 

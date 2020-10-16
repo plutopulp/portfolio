@@ -17,13 +17,13 @@ const { MediaContextProvider, Media } = createMedia({
 
 // Split Landing from the rest as inject Navbar/Sidebar into Landing
 export const DesktopContainer = ({ landing, body }) => {
-  const [fixed, handleToggle] = useToggle(false);
+  const [fixed, setFixed] = React.useState(false);
   return (
     <Media greaterThan="mobile">
       <Visibility
         once={false}
-        onBottomPassed={handleToggle}
-        onBottomPassedReverse={handleToggle}
+        onBottomPassed={() => setFixed(true)}
+        onBottomPassedReverse={() => setFixed(false)}
       >
         {/* Clone landing and pass Navbar as child */}
         {React.cloneElement(
