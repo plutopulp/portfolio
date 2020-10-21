@@ -1,5 +1,6 @@
 import React from "react";
 import styled from "styled-components";
+import { useRefs } from "react-context-refs";
 import { Container, Menu } from "semantic-ui-react";
 import AnchorLink from "react-anchor-link-smooth-scroll";
 

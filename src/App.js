@@ -1,6 +1,7 @@
 import React from "react";
 import "semantic-ui-css/semantic.min.css";
 import "react-awesome-slider/dist/styles.css";
+import { RefProvider } from "react-context-refs";
 
 import { ResponsiveContainer } from "./components/layout/containers";
 import { Landing } from "./components/landing/landing";
@@ -12,15 +13,17 @@ import { Projects } from "./components/projects/projects";
 // For given media range, the container returns cloned sections with appropriate
 // props and children for the media range.
 const App = () => (
-  <ResponsiveContainer
-    landing={<Landing />}
-    body={
-      <React.Fragment>
-        <About />
-        <Skills />
-        <Projects />
-      </React.Fragment>
-    }
-  />
+  <RefProvider>
+    <ResponsiveContainer
+      landing={<Landing />}
+      body={
+        <React.Fragment>
+          <About />
+          <Skills />
+          <Projects />
+        </React.Fragment>
+      }
+    />
+  </RefProvider>
 );
 export default App;

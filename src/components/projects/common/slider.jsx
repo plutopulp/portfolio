@@ -8,11 +8,6 @@ import "react-awesome-slider/dist/styles.css";
 import "react-awesome-slider/dist/custom-animations/cube-animation.css";
 import { TransformWrapper, TransformComponent } from "react-zoom-pan-pinch";
 
-const StyledCaption = styled.div`
-  margin: 1em;
-  text-align: center;
-  color: #fff;
-`;
 export const Slider = ({ media }) => (
   <AwesomeSlider animation="cubeAnimation">
     {media.map((item, index) => (
@@ -51,7 +46,7 @@ SliderPanel.propTypes = {
 
 const ImagePanel = ({ source, padding }) => (
   <div style={{ padding }}>
-    <TransformWrapper defaultScale={1} options={{ limitToBounds: false }}>
+    <TransformWrapper defaultScale={1} options={{ limitToBounds: true }}>
       <TransformComponent>
         <Image src={source} alt="test" />
       </TransformComponent>
