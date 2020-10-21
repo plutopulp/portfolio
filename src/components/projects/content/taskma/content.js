@@ -21,13 +21,24 @@ export const content = {
     "Custom Hooks",
   ],
   implementationTree: tree,
-  hrefs: {
-    repo: {
-      frontend: "https://github.com/Aviemusca/task-manager-frontend",
-      backend: "https://github.com/Aviemusca/task-manager-backend",
+  anchors: [
+    {
+      name: "Backend",
+      href: "https://github.com/Aviemusca/task-manager-backend",
+      type: "github",
     },
-    live: "https://tamska.herokuapp.com/",
-  },
+    {
+      name: "Frontend",
+      href: "https://github.com/Aviemusca/task-manager-frontend",
+      type: "github",
+    },
+    {
+      name: "Live Site",
+      href: "https://tamska.herokuapp.com/",
+      type: "website",
+    },
+  ],
+
   tileImage: "../media/images/taskma.png",
   sliderMedia: [
     {

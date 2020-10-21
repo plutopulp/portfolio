@@ -1,18 +1,10 @@
 import React from "react";
 import PropTypes from "prop-types";
-import { Grid, Header, Image } from "semantic-ui-react";
-import styled from "styled-components";
+import { Grid, Header } from "semantic-ui-react";
+
 import { useScrollTrigger } from "../../hooks/useScrollTrigger";
-
 import { OpacityAndTranslateX } from "../common/styles/index";
-
-const SkillWrapper = styled.div`
-  margin: 2em;
-`;
-const SkillTitle = styled.div`
-  margin-top: 1em;
-  font-weight: 600;
-`;
+import { TitledIcon } from "../common/icons";
 
 export const GridCell = ({ title, skills, even }) => {
   const [cellTrigger, cellRef] = useScrollTrigger(false);
@@ -32,14 +24,16 @@ export const GridCell = ({ title, skills, even }) => {
                 delay={`${index * 200}ms`}
                 trigger={cellTrigger}
               >
-                <SkillWrapper>
-                  <Image
-                    size="tiny"
-                    centered
-                    src={`../media/icons/${skill.iconName}`}
-                  />
-                  <SkillTitle>{skill.title}</SkillTitle>
-                </SkillWrapper>
+                <TitledIcon
+                  key={index}
+                  title={skill.title}
+                  textColor="#333"
+                  direction="column"
+                  width="100px"
+                  iconSize="72px"
+                  margin="2em"
+                  src={`../media/icons/${skill.iconName}`}
+                />
               </OpacityAndTranslateX>
             ))}
           </Grid.Row>

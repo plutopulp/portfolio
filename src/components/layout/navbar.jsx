@@ -50,7 +50,7 @@ const Navbar = ({ fixed, activeItem, handleClick }) => {
             onClick={handleClick}
           />
         </AnchorLink>
-        <AnchorLink href="#about">
+        <AnchorLink href="#about" offset="-1">
           <Menu.Item
             as="a"
             name="about"

@@ -20,19 +20,19 @@ export const Intro = ({ mobile }) => {
         distance="-10em"
       >
         <Paragraph>
-          I'm a full-stack developer based in Dublin, Ireland.
+          I'm a Franco-Irish fullstack developer with experience in common
+          modern frameworks and libraries such as Django and ReactJS.
         </Paragraph>
         <Paragraph>
-          I enjoy solving complex problems, developing my skills and
-          collaborating with others. My focus is clean and re-useable code,
-          while gradually gaining a deeper appreciation of software architecture
-          and design patterns in general. On the other hand, the prospect of
-          building meaningful tools for users and having a positive impact,
-          maintains my focus to keep working hard.
+          I enjoy finding simple solutions to complex problems and writing
+          clean, re-useable code. My aim is to build meaningful tools for users
+          and having a positive impact. I am always looking to further develop
+          my skills and collaborate with others.
         </Paragraph>
         <Paragraph>
           When I'm not coding, you will most likely find me down on the mats
-          training Brazilian-Jiu-Jitsu, playing chess or making music.
+          training Brazilian-Jiu-Jitsu, playing chess or making music. I am
+          currently working on a BJJ mind-mapping fullstack application!
         </Paragraph>
       </OpacityAndTranslateX>
     </Grid.Column>

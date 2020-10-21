@@ -29,9 +29,9 @@ export const Header = ({ mobile }) => (
       </MainHeaderWithAnimation>
 
       <SubHeaderWithAnimation mobile={mobile} as="h2" inverted>
-        a full-stack developer
+        a fullstack developer
       </SubHeaderWithAnimation>
-      <AnchorLink href="#about">
+      <AnchorLink href="#about" offset="-1">
         <ButtonWithAnimation
           inverted
           size={mobile ? "medium" : "huge"}

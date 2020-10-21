@@ -1,4 +1,5 @@
 import { tree } from "./implementationTree";
+import { technologies as techs } from "../common/technologies";
 
 export const content = {
   title: "Deviculum",
@@ -8,8 +9,22 @@ export const content = {
     "Users associate learning outcomes/objectives to curriculum modules which are parsed using a natural language processing toolkit in order to identify verbs and return a complexity breakdown of the curriculum within their chosen taxonomy.",
   technologies: {
     brief: ["Django", "JavaScript"],
-    backend: ["Python", "Django", "Celery", "RabbitMQ", "spaCy", "PostgreSQL"],
-    frontend: ["HTML-5", "CSS-3", "JavaScript", "Bootstrap", "chartjs", "d3js"],
+    backend: [
+      techs.python,
+      techs.django,
+      techs.celery,
+      techs.rabbitmq,
+      techs.spacy,
+      techs.postgresql,
+    ],
+    frontend: [
+      techs.html,
+      techs.css,
+      techs.javascript,
+      techs.bootstrap,
+      techs.chartjs,
+      techs.d3js,
+    ],
   },
   learnings: [
     "Authentication",
@@ -27,12 +42,13 @@ export const content = {
   ],
   implementationTree: tree,
   anchors: [
-    { name: "Frontend", href: null, type: "github" },
     {
       name: "Backend",
       href: "https://github.com/Aviemusca/curriculum-dev",
       type: "github",
     },
+
+    { name: "Frontend", href: null, type: "github" },
     {
       name: "Live Site",
       href: "https://deviculum.herokuapp.com/",

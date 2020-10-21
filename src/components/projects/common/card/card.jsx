@@ -1,24 +1,24 @@
 import React from "react";
 import PropTypes from "prop-types";
-import uuid from "react-uuid";
 import styled from "styled-components";
 import Tree from "react-d3-tree";
-
 import { Grid, Label, Image, Button, Icon } from "semantic-ui-react";
+
+import { TechList } from "./techList";
 import { DeviculumChart } from "../../deviculumChart/deviculumChart";
 import { Anchors } from "./anchors";
 
-const CardWrapper = styled.div`
+const Wrapper = styled.div`
   margin: 6em 5%;
   color: #333;
 `;
-const CardTitle = styled.div`
+const MainTitle = styled.div`
   font-size: 2em;
   font-weight: 700;
   margin-bottom: 0.5em;
 `;
 
-const CardSubTitle = styled.div`
+const SubTitle = styled.div`
   font-size: 1em;
   font-weight: 600;
   color: #777;
@@ -27,6 +27,11 @@ const CardSubTitle = styled.div`
   border-bottom: 1px solid #999;
 `;
 
+const SecondaryTitle = styled.div`
+  font-size: 1.5em;
+  font-weight: 600;
+  margin: 2em 0 1em 0;
+`;
 const ProjectCard = ({ project }) => {
   const {
     title,
@@ -39,9 +44,9 @@ const ProjectCard = ({ project }) => {
   } = project;
 
   return (
-    <CardWrapper>
-      <CardTitle>{title}</CardTitle>
-      <CardSubTitle>{meta.toUpperCase()}</CardSubTitle>
+    <Wrapper>
+      <MainTitle>{title}</MainTitle>
+      <SubTitle>{meta.toUpperCase()}</SubTitle>
       <Grid columns={2}>
         <Grid.Column width={10}>{description}</Grid.Column>
 
@@ -49,7 +54,10 @@ const ProjectCard = ({ project }) => {
           <Anchors anchors={anchors} />
         </Grid.Column>
       </Grid>
-    </CardWrapper>
+      <SecondaryTitle>Built With</SecondaryTitle>
+      <TechList techs={technologies.backend} textColor="#257795aa" />
+      <TechList techs={technologies.frontend} textColor="#AC2CACaa" />
+    </Wrapper>
   );
 };
 
@@ -59,26 +67,6 @@ const CardImage = ({ title, img }) =>
 CardImage.propTypes = {
   title: PropTypes.string.isRequired,
   img: PropTypes.string,
-};
-
-const TechStack = ({ techs, color }) => {
-  return (
-    <p>
-      <Label.Group tag size="small" color={color} inverted>
-        {" "}
-        {techs.map((tech) => (
-          <Label key={uuid()} as="a">
-            {tech}
-          </Label>
-        ))}{" "}
-      </Label.Group>
-    </p>
-  );
-};
-
-TechStack.propTypes = {
-  techs: PropTypes.arrayOf(PropTypes.string).isRequired,
-  color: PropTypes.string.isRequired,
 };
 
 export { ProjectCard as Card };

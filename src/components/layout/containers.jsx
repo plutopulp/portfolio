@@ -15,7 +15,7 @@ const { MediaContextProvider, Media } = createMedia({
   },
 });
 
-// Split Landing from the rest as inject Navbar/Sidebar into Landing
+// Split Landing from other sections as inject Navbar/Sidebar into Landing
 export const DesktopContainer = ({ landing, body }) => {
   const [fixed, setFixed] = React.useState(false);
   return (
