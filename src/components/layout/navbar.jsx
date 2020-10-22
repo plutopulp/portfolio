@@ -3,26 +3,10 @@ import styled from "styled-components";
 import { useRefs } from "react-context-refs";
 import { Container, Menu } from "semantic-ui-react";
 import AnchorLink from "react-anchor-link-smooth-scroll";
+import _ from "lodash";
 
-const NavbarContainer = ({ fixed }) => {
-  // On refresh - get the current active item from url
-  const [activeItem, setActiveItem] = React.useState(
-    window.location.pathname
-      .split("")
-      .filter((c) => c !== "/")
-      .join("")
-  );
-
-  const handleItemClick = (event, { name }) => setActiveItem(name);
-
-  return (
-    <Navbar
-      fixed={fixed}
-      activeItem={activeItem}
-      handleClick={handleItemClick}
-    />
-  );
-};
+import { useScrollPosition } from "../../hooks/useScrollPosition";
+import { getPositionOfLineAndCharacter } from "typescript";
 
 const StyledMenu = styled(Menu)`
   &.ui.secondary.inverted.pointing.menu {
@@ -33,7 +17,79 @@ const StyledMenu = styled(Menu)`
     background-color: #2f303a;
   }
 `;
-const Navbar = ({ fixed, activeItem, handleClick }) => {
+
+// The sections of the SPA. Have a name, position relative to scroll position,
+// and active if scroll position within the section.
+// For proper functioning (of links, active items etc..), each section component should be
+// wrapped in a div with an id of #name
+const initialSections = ["home", "about", "skills", "projects"].map(
+  (section) => {
+    return { name: section, position: { top: 0, bottom: 0 }, active: false };
+  }
+);
+
+const NavbarContainer = ({ fixed }) => {
+  const [sections, setSections] = React.useState(initialSections);
+  const scrollPosition = useScrollPosition();
+  const sectionRefs = useRefs().filter((ref) => ref.type === "section");
+
+  // Update active section when section positions change
+  // Want it to be instant
+  React.useLayoutEffect(() => {
+    const updateActiveSection = () => {
+      const activeIndex = sections.findIndex(
+        (section) => section.position.bottom >= 20
+      );
+      setSections(
+        sections.map((section, index) => {
+          return index === activeIndex
+            ? { ...section, active: true }
+            : { ...section, active: false };
+        })
+      );
+    };
+    updateActiveSection();
+  }, [JSON.stringify(sections)]);
+
+  React.useLayoutEffect(() => {
+    const topPosition = (element) => element.getBoundingClientRect().top;
+    const bottomPosition = (element) => element.getBoundingClientRect().bottom;
+
+    const getPosition = (ref) => {
+      return {
+        top: topPosition(ref.current),
+        bottom: bottomPosition(ref.current),
+      };
+    };
+    const findMatchingSection = (ref) =>
+      sections.findIndex((section) => section.name === ref.meta.name);
+
+    const updateSectionPositions = () => {
+      // Updates the top and bottom positions of each section relative to
+      // the scroll position
+      const newSections = sections.map((section) => {
+        return { ...section };
+      });
+      sectionRefs.forEach((ref) => {
+        const targetIndex = findMatchingSection(ref);
+        newSections[targetIndex].position = getPosition(ref);
+      });
+      setSections(newSections);
+    };
+    if (sectionRefs.length) updateSectionPositions();
+  }, [sectionRefs.length, scrollPosition]);
+
+  return (
+    <Navbar
+      fixed={fixed}
+      sections={sections.map((section) => {
+        return _.pick(section, ["name", "active"]);
+      })}
+    />
+  );
+};
+
+const Navbar = ({ fixed, sections }) => {
   return (
     <StyledMenu
       fixed={fixed ? "top" : null}
@@ -43,45 +99,13 @@ const Navbar = ({ fixed, activeItem, handleClick }) => {
       size="large"
     >
       <Container>
-        <AnchorLink href="#landing">
-          <Menu.Item
-            as="a"
-            name="home"
-            active={activeItem === "home"}
-            onClick={handleClick}
-          />
-        </AnchorLink>
-        <AnchorLink href="#about" offset="-1">
-          <Menu.Item
-            as="a"
-            name="about"
-            active={activeItem === "about"}
-            onClick={handleClick}
-          />
-        </AnchorLink>
-        <AnchorLink href="#skills">
-          <Menu.Item
-            as="a"
-            name="skills"
-            active={activeItem === "skills"}
-            onClick={handleClick}
-          />
-        </AnchorLink>
+        {sections.map((section) => (
+          <AnchorLink href={`#${section.name}`} offset="-1">
+            <Menu.Item as="a" name={section.name} active={section.active} />
+          </AnchorLink>
+        ))}
 
-        <AnchorLink href="#projects">
-          <Menu.Item
-            as="a"
-            name="projects"
-            active={activeItem === "projects"}
-            onClick={handleClick}
-          />
-        </AnchorLink>
-        <Menu.Item
-          as="a"
-          name="resume"
-          active={activeItem === "resume"}
-          onClick={handleClick}
-        />
+        <Menu.Item as="a" name="resume" />
       </Container>
     </StyledMenu>
   );

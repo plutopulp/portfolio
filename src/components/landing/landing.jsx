@@ -8,11 +8,11 @@ import { LandingSegment } from "../common/styles/index";
 
 export const Landing = ({ children, mobile }) => {
   const windowSize = useWindowSize();
-  const ref = useContextRef("section", { name: "landing" });
+  const ref = useContextRef("section", { name: "home" });
 
   return (
-    <div ref={ref} id="landing">
-      <LandingSegment inverted vertical height={windowSize.height} id="landing">
+    <div ref={ref} id="home">
+      <LandingSegment inverted vertical height={windowSize.height}>
         {children}
         <Header mobile={mobile} />
         <SpiralCircles />
