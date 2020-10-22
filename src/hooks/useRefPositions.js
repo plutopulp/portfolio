@@ -7,7 +7,7 @@ export const useRefPositions = (refs) => {
   const scrollPosition = useScrollPosition();
   const [positions, setPositions] = React.useState(
     refs.map((_) => {
-      return { position: { top: 0, bottom: 0 } };
+      return { top: 0, bottom: 0 };
     })
   );
 
@@ -25,7 +25,7 @@ export const useRefPositions = (refs) => {
     const updatePositions = () => {
       // Updates the position of each ref relative to the scroll position
       const newPositions = refs.map((ref) => {
-        return { position: getPosition(ref) };
+        return getPosition(ref);
       });
       setPositions(newPositions);
     };
