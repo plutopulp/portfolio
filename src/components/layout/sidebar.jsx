@@ -1,8 +1,11 @@
 import React from "react";
 import { Sidebar, Menu } from "semantic-ui-react";
 
+import { SidebarMenu } from "./styles";
+
 export const MobileSidebar = ({ onHide, open }) => (
   <Sidebar
+    style={{ background: "#2f303a" }}
     as={Menu}
     animation="overlay"
     inverted

@@ -43,7 +43,7 @@ export const content = {
   implementationTree: tree,
   anchors: [
     {
-      name: "Backend",
+      name: "Source",
       href: "https://github.com/Aviemusca/curriculum-dev",
       type: "github",
     },
@@ -52,7 +52,7 @@ export const content = {
     {
       name: "Live Site",
       href: "https://deviculum.herokuapp.com/",
-      type: "website",
+      type: "globe",
     },
   ],
   tileImage: null,

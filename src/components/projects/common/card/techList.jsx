@@ -1,7 +1,6 @@
 import React from "react";
 import PropTypes from "prop-types";
 import styled from "styled-components";
-import { Grid } from "semantic-ui-react";
 
 import { TitledIcon } from "../../../common/icons";
 
@@ -18,9 +17,9 @@ export const TechList = ({ techs, textColor }) => (
         title={tech.title}
         textColor={textColor}
         direction="column"
-        width="72px"
-        iconSize="36px"
-        margin="0 2em 0 0"
+        width="54px"
+        iconSize="28px"
+        margin="1em 4em 1em 0"
         src={`../media/icons/${tech.icon}`}
       />
     ))}

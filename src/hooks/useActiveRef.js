@@ -4,7 +4,7 @@ import { useRefPositions } from "./useRefPositions";
 // A hook which tracks which ref (DOM element) in an array of refs is active
 // The active ref is the one AFTER the ref whose bottom position has moved
 // beyond (above) the top of the screen
-// Refs should be passed to the hook in descending positional order
+// Refs "should" be passed to the hook in descending positional order
 
 export const useActiveRef = (refs, params) => {
   let offset = 0;

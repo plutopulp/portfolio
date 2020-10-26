@@ -9,22 +9,60 @@ export const tree = [
           {
             name: "Authentication",
             children: [
-              { name: "Custom User Model" },
-              { name: "Password Change" },
-              { name: "Password Reset" },
+              { name: "Password Change + Reset" },
+              { name: "Auth + Permission Tests" },
             ],
           },
           {
-            name: "OOP designs",
+            name: "OOP Design",
             children: [
               { name: "Class-Based Views" },
               { name: "Custom Mixins" },
+            ],
+          },
+          {
+            name: "Async Task Flows",
+            children: [
+              { name: "Chains" },
+              { name: "Groups" },
+              { name: "Chords" },
+            ],
+          },
+          {
+            name: "API Design",
+          },
+
+          { name: "NLP parsing algorithm" },
+          {
+            name: "Forms",
+            children: [
+              { name: "Custom Validation" },
+              { name: "Profanity Checks" },
             ],
           },
         ],
       },
       {
         name: "Frontend",
+        children: [
+          {
+            name: "Layouts",
+            children: [
+              { name: "Creating Dashboards" },
+              { name: "Dynamic Grids" },
+              { name: "Flexbox" },
+            ],
+          },
+          { name: "OOP Design", children: [] },
+          {
+            name: "Charts",
+            children: [
+              { name: "Bar Charts" },
+              { name: "Stacked Bar Charts" },
+              { name: "Chord Charts" },
+            ],
+          },
+        ],
       },
     ],
   },

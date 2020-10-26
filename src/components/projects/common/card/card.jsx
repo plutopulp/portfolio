@@ -1,8 +1,7 @@
 import React from "react";
 import PropTypes from "prop-types";
 import styled from "styled-components";
-import Tree from "react-d3-tree";
-import { Grid, Label, Image, Button, Icon } from "semantic-ui-react";
+import { Image } from "semantic-ui-react";
 
 import { TechList } from "./techList";
 import { DeviculumChart } from "../../deviculumChart/deviculumChart";
@@ -12,14 +11,19 @@ const Wrapper = styled.div`
   margin: 6em 5%;
   color: #333;
 `;
+const TitleWrapper = styled.div`
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+`;
 const MainTitle = styled.div`
-  font-size: 2em;
+  font-size: 2.5em;
   font-weight: 700;
   margin-bottom: 0.5em;
 `;
 
 const SubTitle = styled.div`
-  font-size: 1em;
+  font-size: 1.25em;
   font-weight: 600;
   color: #777;
   padding-bottom: 0.75em;
@@ -32,31 +36,25 @@ const SecondaryTitle = styled.div`
   font-weight: 600;
   margin: 2em 0 1em 0;
 `;
-const ProjectCard = ({ project }) => {
-  const {
-    title,
-    meta,
-    description,
-    anchors,
-    technologies,
-    learnings,
-    implementationTree,
-  } = project;
+const StyledDescription = styled.div`
+  font-size: 1.25em;
+  color: #333;
+  line-height: 1.5;
+`;
 
+const ProjectCard = ({ project }) => {
+  const { title, meta, description, anchors, technologies } = project;
   return (
     <Wrapper>
-      <MainTitle>{title}</MainTitle>
+      <TitleWrapper>
+        <MainTitle>{title}</MainTitle>
+        <Anchors anchors={anchors} />
+      </TitleWrapper>
       <SubTitle>{meta.toUpperCase()}</SubTitle>
-      <Grid columns={2}>
-        <Grid.Column width={10}>{description}</Grid.Column>
-
-        <Grid.Column width={6}>
-          <Anchors anchors={anchors} />
-        </Grid.Column>
-      </Grid>
+      <StyledDescription>{description}</StyledDescription>
       <SecondaryTitle>Built With</SecondaryTitle>
-      <TechList techs={technologies.backend} textColor="#257795aa" />
-      <TechList techs={technologies.frontend} textColor="#AC2CACaa" />
+      <TechList techs={technologies.backend} textColor="#333" />
+      <TechList techs={technologies.frontend} textColor="#333" />
     </Wrapper>
   );
 };
