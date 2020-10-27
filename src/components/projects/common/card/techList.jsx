@@ -17,9 +17,9 @@ export const TechList = ({ techs, textColor }) => (
         title={tech.title}
         textColor={textColor}
         direction="column"
-        width="54px"
-        iconSize="28px"
-        margin="1em 4em 1em 0"
+        width="82px"
+        iconSize="32px"
+        margin="1em 3em 1em 0"
         src={`../media/icons/${tech.icon}`}
       />
     ))}

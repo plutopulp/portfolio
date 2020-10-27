@@ -5,8 +5,6 @@ import { useContextRef } from "react-context-refs";
 import { Grid } from "./grid";
 import { MainContainer, MainSegmentBlue } from "../common/styles/index";
 import { Header } from "../common/headers";
-import { Card } from "./common/card/card";
-import { projectsContent } from "./content/allContent";
 
 export const Projects = ({ mobile }) => {
   const ref = useContextRef("section", { name: "projects" });
@@ -16,7 +14,6 @@ export const Projects = ({ mobile }) => {
         <Header title="PROJECTS" mobile={mobile} />
         <MainContainer>
           <Grid />
-          <Card project={projectsContent[0]} />
         </MainContainer>
       </MainSegmentBlue>
     </div>

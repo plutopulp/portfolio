@@ -3,6 +3,6 @@ import { Container } from "semantic-ui-react";
 
 export const MainContainer = styled(Container)`
   &.ui.container {
-    margin-top: 4em;
+    margin-top: 6em;
   }
 `;

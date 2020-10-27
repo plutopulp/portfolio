@@ -1,6 +1,5 @@
 import React from "react";
 import PropTypes from "prop-types";
-import styled from "styled-components";
 import { Image } from "semantic-ui-react";
 
 import AwesomeSlider from "react-awesome-slider";
@@ -8,8 +7,8 @@ import "react-awesome-slider/dist/styles.css";
 import "react-awesome-slider/dist/custom-animations/cube-animation.css";
 import { TransformWrapper, TransformComponent } from "react-zoom-pan-pinch";
 
-export const Slider = ({ media }) => (
-  <AwesomeSlider animation="cubeAnimation">
+export const Slider = ({ media, onTransition }) => (
+  <AwesomeSlider animation="cubeAnimation" onTransitionEnd={onTransition}>
     {media.map((item, index) => (
       <div key={index}>
         <SliderPanel
@@ -17,7 +16,6 @@ export const Slider = ({ media }) => (
           source={item.source}
           padding={item.padding}
         />
-        <p>I want to see what you got.</p>
       </div>
     ))}
   </AwesomeSlider>

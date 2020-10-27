@@ -8,18 +8,17 @@ import { DeviculumChart } from "../../deviculumChart/deviculumChart";
 import { Anchors } from "./anchors";
 
 const Wrapper = styled.div`
-  margin: 6em 5%;
-  color: #333;
+  margin: 4em 0;
 `;
 const TitleWrapper = styled.div`
   display: flex;
   justify-content: space-between;
   align-items: center;
+  margin-bottom: 0.5em;
 `;
 const MainTitle = styled.div`
   font-size: 2.5em;
   font-weight: 700;
-  margin-bottom: 0.5em;
 `;
 
 const SubTitle = styled.div`
@@ -53,8 +52,8 @@ const ProjectCard = ({ project }) => {
       <SubTitle>{meta.toUpperCase()}</SubTitle>
       <StyledDescription>{description}</StyledDescription>
       <SecondaryTitle>Built With</SecondaryTitle>
-      <TechList techs={technologies.backend} textColor="#333" />
-      <TechList techs={technologies.frontend} textColor="#333" />
+      <TechList techs={technologies.backend} textColor="#257795aa" />
+      <TechList techs={technologies.frontend} textColor="#4c4cd5aa" />
     </Wrapper>
   );
 };

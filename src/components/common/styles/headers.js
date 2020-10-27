@@ -22,6 +22,7 @@ export const MainHeader = styled(Header)`
 export const BodyHeader = styled(MainHeader)`
   color: #333;
   font-weight: 700;
+  margin-bottom: 3em;
 `;
 
 export const MainHeaderWithAnimation = styled(MainHeader)`
