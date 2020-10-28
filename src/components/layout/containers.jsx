@@ -4,7 +4,7 @@ import { PropTypes } from "prop-types";
 import { Visibility, Sidebar, Container, Menu, Icon } from "semantic-ui-react";
 
 import { useToggle } from "../../hooks/useToggle";
-import Navbar from "./navbar";
+import { Navbar } from "./navbar";
 import { MobileSidebar } from "./sidebar";
 
 const { MediaContextProvider, Media } = createMedia({

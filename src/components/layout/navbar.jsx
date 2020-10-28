@@ -1,39 +1,9 @@
 import React from "react";
-import { useRefs } from "react-context-refs";
-import { Container, Menu } from "semantic-ui-react";
-import AnchorLink from "react-anchor-link-smooth-scroll";
-
-import { useActiveRef } from "../../hooks/useActiveRef";
+import PropTypes from "prop-types";
 import { NavbarMenu } from "./styles";
+import { NavItems } from "./navItems";
 
-// The sections of the SPA. For proper functioning of links,
-// each section component should be wrapped in a div with an id
-// matching the labels below.
-// Refs to these divs should also be added to contextRefs
-const orderedSections = ["home", "about", "skills", "projects"];
-
-const NavbarContainer = ({ fixed }) => {
-  let sectionRefs = useRefs().filter((ref) => ref.type === "section");
-  // Sort refs according to orderedSections
-  sectionRefs = sectionRefs
-    .slice()
-    .sort(
-      (a, b) =>
-        orderedSections.indexOf(a.meta.name) -
-        orderedSections.indexOf(b.meta.name)
-    );
-  const activeRefIndex = useActiveRef(sectionRefs, { offset: 20 });
-
-  return (
-    <Navbar
-      fixed={fixed}
-      sections={orderedSections}
-      activeIndex={activeRefIndex}
-    />
-  );
-};
-
-const Navbar = ({ fixed, sections, activeIndex }) => {
+export const Navbar = ({ fixed }) => {
   return (
     <NavbarMenu
       fixed={fixed ? "top" : null}
@@ -42,17 +12,11 @@ const Navbar = ({ fixed, sections, activeIndex }) => {
       secondary={true}
       size="large"
     >
-      <Container>
-        {sections.map((section, index) => (
-          <AnchorLink href={`#${section}`} offset="-1" key={index}>
-            <Menu.Item as="a" name={section} active={index === activeIndex} />
-          </AnchorLink>
-        ))}
-
-        <Menu.Item as="a" name="resume" />
-      </Container>
+      <NavItems />
     </NavbarMenu>
   );
 };
 
-export default NavbarContainer;
+Navbar.propTypes = {
+  fixed: PropTypes.bool.isRequired,
+};
