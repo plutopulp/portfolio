@@ -6,6 +6,7 @@ import { Visibility, Sidebar, Container, Menu, Icon } from "semantic-ui-react";
 import { useToggle } from "../../hooks/useToggle";
 import { Navbar } from "./navbar";
 import { MobileSidebar } from "./sidebar";
+import { NavbarMenu } from "./styles";
 
 const { MediaContextProvider, Media } = createMedia({
   breakpoints: {
@@ -57,11 +58,11 @@ export const MobileContainer = ({ landing, body }) => {
             landing,
             { mobile: true },
             <Container>
-              <Menu inverted pointing secondary size="large">
+              <NavbarMenu inverted pointing secondary size="large">
                 <Menu.Item onClick={handleToggle}>
                   <Icon name="sidebar" />
                 </Menu.Item>
-              </Menu>
+              </NavbarMenu>
             </Container>
           )}
         </Sidebar.Pusher>

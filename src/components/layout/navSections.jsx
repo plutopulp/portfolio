@@ -13,7 +13,7 @@ import { Resume } from "../resume/resume";
 // Refs to these divs should also be added to contextRefs
 const sections = ["home", "about", "skills", "projects"];
 
-export const NavItems = () => {
+export const NavSections = () => {
   let sectionRefs = useRefs().filter((ref) => ref.type === "section");
   // Sort refs according to sections
   sectionRefs = sectionRefs

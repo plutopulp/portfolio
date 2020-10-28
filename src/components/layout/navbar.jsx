@@ -1,7 +1,7 @@
 import React from "react";
 import PropTypes from "prop-types";
 import { NavbarMenu } from "./styles";
-import { NavItems } from "./navItems";
+import { NavSections } from "./navSections";
 
 export const Navbar = ({ fixed }) => {
   return (
@@ -12,7 +12,7 @@ export const Navbar = ({ fixed }) => {
       secondary={true}
       size="large"
     >
-      <NavItems />
+      <NavSections />
     </NavbarMenu>
   );
 };
