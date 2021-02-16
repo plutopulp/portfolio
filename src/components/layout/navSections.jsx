@@ -32,7 +32,9 @@ export const NavSections = () => {
         </AnchorLink>
       ))}
 
-      <Menu.Item as="a" name="resume" onClick={toggleResume} />
+      <AnchorLink href="" offset="-1">
+        <Menu.Item as="a" name="resume" onClick={toggleResume} active={false} />
+      </AnchorLink>
       <Resume open={resume} handleClose={toggleResume} />
     </Container>
   );
