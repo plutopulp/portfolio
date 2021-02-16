@@ -25,7 +25,7 @@ const SpiralCircles = () => (
         key={index}
         initialAngle={prop.state.angle}
         twist={prop.twist}
-        diameter="1vw"
+        diameter="1.618vmin"
         color="#ffffff80"
         finalColor={prop.state.color}
         left="49.2%"

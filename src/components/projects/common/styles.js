@@ -5,6 +5,7 @@ export const TileWrapper = styled.div`
   position: relative;
   width: 80%;
   height: 80%;
+  margin: 0 auto;
 `;
 
 export const StyledSegment = styled(Segment)`

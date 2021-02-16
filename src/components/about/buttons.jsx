@@ -34,12 +34,12 @@ export const Buttons = ({ mobile }) => {
       </Grid.Column>
 
       <Grid.Column textAlign="center" floated="right" width={6}>
-        <AnchorLink href="#skills">
+        <AnchorLink href="#projects">
           <StyledButton
             size={mobile ? "medium" : "huge"}
             style={{ marginRight: "0em" }}
           >
-            Check Out My Work
+            Check Out My Projects
             <RotateIcon>
               <Icon name="down arrow" />
             </RotateIcon>

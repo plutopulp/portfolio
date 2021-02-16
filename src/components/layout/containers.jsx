@@ -53,7 +53,7 @@ export const MobileContainer = ({ landing, body }) => {
       <Sidebar.Pushable>
         <MobileSidebar onHide={handleToggle} open={sidebar} />
         <Sidebar.Pusher dimmed={sidebar}>
-          {/* Clone landing and pass Sidebar as child */}
+          {/* Clone landing and pass Navbar Hamburger as child */}
           {React.cloneElement(
             landing,
             { mobile: true },
