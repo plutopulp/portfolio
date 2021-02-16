@@ -1,0 +1,28 @@
+version: "3"
+
+services:
+  nginx:
+    container_name: nginx
+    restart: unless-stopped
+    build:
+      context: .
+      dockerfile: ./docker/Dockerfile
+    ports:
+      - 80:80
+      - 443:443
+    volumes:
+      - staticfiles:/app/staticfiles
+      - ./docker/nginx/production:/etc/nginx/conf.d
+      - ./docker/nginx/certbot/conf:/etc/letsencrypt
+      - ./docker/nginx/certbot/www:/var/www/certbot
+  
+  cerbot:
+    container_name: certbot
+    image: certbot/certbot
+    volumes:
+      - ./docker/nginx/certbot/conf:/etc/letsencrypt
+      - ./docker/nginx/certbot/www:/var/www/certbot
+    entrypoint: "/bin/sh -c 'trap exit TERM; while :; do certbot renew; sleep 12h & wait $${!}; done;'"
+
+volumes:
+  staticfiles:

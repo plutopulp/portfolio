@@ -6,12 +6,12 @@ services:
     restart: unless-stopped
     build:
       context: .
-      dockerfile: ./docker/nginx/dockerfile
+      dockerfile: ./docker/Dockerfile
     ports:
       - 3000:80
     volumes:
       - ./docker/nginx/development:/etc/nginx/conf.d
-      - portfolio_staticfiles:/app/staticfiles
+      - staticfiles:/app/staticfiles
 
 volumes:
-  static_volume:
+  staticfiles:
