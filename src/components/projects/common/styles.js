@@ -3,7 +3,7 @@ import { Segment, Header } from "semantic-ui-react";
 
 export const TileWrapper = styled.div`
   position: relative;
-  width: 80%;
+  width: 100%;
   height: 80%;
   margin: 0 auto;
 `;

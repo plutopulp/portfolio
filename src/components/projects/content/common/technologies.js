@@ -14,6 +14,7 @@ export const technologies = {
   bootstrap: { title: "Bootstrap", icon: "bootstrap.svg" },
   chartjs: { title: "Chartjs", icon: "chartjs.svg" },
   d3js: { title: "D3js", icon: "d3js.svg" },
+  docker: { title: "Docker", icon: "docker.png" },
 };
 
 //["Python", "Django", "Celery", "RabbitMQ", "spaCy", "PostgreSQL"],

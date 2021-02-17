@@ -9,8 +9,8 @@ const languageSkills = [
 const backendSkills = [
   { title: "Django", iconName: "django.svg" },
   { title: "Rest APIs", iconName: "restAPI.png" },
-  { title: "Python Celery", iconName: "celery.svg" },
-  { title: "RabbitMQ", iconName: "rabbitmq.svg" },
+  { title: "Docker", iconName: "docker.png" },
+  { title: "Celery", iconName: "celery.svg" },
   { title: "PostgreSQL", iconName: "psql.svg" },
   { title: "MySQL", iconName: "mySQL.svg" },
 ];

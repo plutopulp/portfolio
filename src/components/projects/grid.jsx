@@ -5,7 +5,7 @@ import { projectsContent } from "./content/allContent";
 
 const ProjectGrid = () => {
   return (
-    <Grid container columns={2} stackable>
+    <Grid container columns={3} stackable>
       <Grid.Row columns="equal" textAlign="center">
         {projectsContent.map((project, index) => (
           <Grid.Column>

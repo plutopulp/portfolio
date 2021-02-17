@@ -16,7 +16,7 @@ services:
       - ./docker/nginx/certbot/conf:/etc/letsencrypt
       - ./docker/nginx/certbot/www:/var/www/certbot
   
-  cerbot:
+  certbot:
     container_name: certbot
     image: certbot/certbot
     volumes:
