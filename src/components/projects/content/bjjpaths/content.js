@@ -5,8 +5,9 @@ export const content = {
   title: "BJJpaths",
   meta: "Brazilian Jiu-Jitsu mind mapper",
   description:
-    "A mind mapping web application for jiu-jitsu practitioners to connect their game." +
-    "",
+    "A mind mapping web application for jiu-jitsu practitioners to lay out and connect their game. " +
+    "The user has a variety of move categories at their disposal (e.g. Submission, Grip, Transition etc...) " +
+    "and each category is represented by its own shape and colour. The user connects up moves depending on their opponent's action/reaction so that the map branches off into different move sequences. ",
   technologies: {
     brief: ["Django", "ReactJS"],
     backend: [
@@ -41,20 +42,38 @@ export const content = {
       type: "globe",
     },
   ],
-  tileImage: "../media/images/taskma/taskma.png",
+  tileImage: "../media/images/bjjpaths/bjjpaths.png",
   sliderMedia: [
     {
-      source: "../media/images/deviculum/curriculum.png",
+      source: "../media/images/bjjpaths/bjjpaths-1.gif",
       type: "image",
-      padding: "22%",
-      caption: "A Computer Science curriculum with 2 taxonomy analyses.",
+      padding: "5%",
+      caption: "Creating and editing a node.",
     },
 
     {
-      source: "../media/videos/deviculum.mp4",
-      type: "video",
+      source: "../media/images/bjjpaths/bjjpaths-2.gif",
+      type: "image",
       padding: "5%",
-      caption: "Deviculum demo video.",
+      caption: "Creating an edge and arrow head following node contour.",
+    },
+    {
+      source: "../media/images/bjjpaths/bjjpaths-delete-node.gif",
+      type: "image",
+      padding: "5%",
+      caption: "Removing a node and its connecting edges.",
+    },
+    {
+      source: "../media/images/bjjpaths/bjjpaths-3.gif",
+      type: "image",
+      padding: "5%",
+      caption: "Highlighting all the connecting paths between 2 nodes.",
+    },
+    {
+      source: "../media/images/bjjpaths/bjjpaths-layout.gif",
+      type: "image",
+      padding: "5%",
+      caption: "Different layout types.",
     },
   ],
 };
