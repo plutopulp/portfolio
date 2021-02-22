@@ -42,7 +42,7 @@ Tile.propTypes = {
 };
 
 const TileImage = ({ title, src }) =>
-  title === "Deviculum" ? <DeviculumChart /> : <Image src={src} />;
+  title === "Deviculum" ? <DeviculumChart /> : <Image src={src} bordered />;
 
 TileImage.propTypes = {
   title: PropTypes.string.isRequired,
