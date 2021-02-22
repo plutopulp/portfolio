@@ -6,7 +6,7 @@ import { FormContainer, FormTitle, FormSubText } from "./styles";
 const ContactForm = () => {
   return (
     <FormContainer>
-      <Form id="contact-form" inverted>
+      <Form id="contact-form" inverted size="small">
         <Form.Field
           control={Input}
           label="Name"

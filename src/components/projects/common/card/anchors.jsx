@@ -26,7 +26,7 @@ const StyledIcon = styled(Icon)`
 `;
 
 const Anchor = ({ anchor }) => (
-  <a href={anchor.href} target="_blank">
+  <a href={anchor.href} target="_blank" rel="noopener noreferrer">
     <ButtonWrapper>
       <InnerWrapper>
         <Popup
