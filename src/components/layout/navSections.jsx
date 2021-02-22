@@ -11,7 +11,7 @@ import { Resume } from "../resume/resume";
 // each section component should be wrapped in a div with an id
 // matching the labels below.
 // Refs to these divs should also be added to contextRefs
-const sections = ["home", "about", "skills", "projects"];
+const sections = ["home", "about", "skills", "projects", "contact"];
 
 export const NavSections = () => {
   let sectionRefs = useRefs().filter((ref) => ref.type === "section");
