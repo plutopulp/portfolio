@@ -4,7 +4,7 @@ import PropTypes from "prop-types";
 import { BodyHeader, OpacityAndTranslateX } from "../common/styles/index";
 import { useScrollTrigger } from "../../hooks/useScrollTrigger";
 
-export const Header = ({ title, mobile }) => {
+export const Header = ({ title, mobile, color }) => {
   const [triggerHeader, headerRef] = useScrollTrigger(false);
   return (
     <OpacityAndTranslateX
@@ -12,7 +12,7 @@ export const Header = ({ title, mobile }) => {
       ref={headerRef}
       distance="-10em"
     >
-      <BodyHeader as="h1" mobile={mobile}>
+      <BodyHeader as="h1" mobile={mobile} color={color}>
         {title}
       </BodyHeader>
     </OpacityAndTranslateX>

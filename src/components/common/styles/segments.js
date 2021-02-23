@@ -27,3 +27,8 @@ export const MainSegmentWhite = styled(MainSegment)`
     background: #fff;
   }
 `;
+export const MainSegmentGrey = styled(MainSegment)`
+  &.segment.vertical {
+    background: #2f303a;
+  }
+`;

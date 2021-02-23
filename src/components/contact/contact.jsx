@@ -1,12 +1,13 @@
 import React from "react";
 import PropTypes from "prop-types";
 import { useContextRef } from "react-context-refs";
+import emailjs from "emailjs-com";
 
 import { Header } from "../common/headers";
 
 import { useFormFieldsWithErrors } from "../../hooks/useFormFieldsWithErrors";
 import { useFormValid } from "../../hooks/useFormValid";
-import { MainContainer, MainSegmentWhite } from "../common/styles/index";
+import { MainContainer, MainSegmentGrey } from "../common/styles/index";
 import ContactForm from "./form/form";
 
 const initialFields = {
@@ -36,25 +37,44 @@ export const Contact = ({ mobile }) => {
   const formValid = useFormValid(fields, errors);
 
   // Callback on successful contact creation
-  const handleCreateSuccess = () => {
+  const handleEmailSuccess = () => {
     setFields(initialFields);
     setFormSuccess(true);
   };
 
   // Callback on unsuccessful contact creation
-  const handleCreateError = () => {
+  const handleEmailError = () => {
     setFormError(true);
   };
 
   const handleSubmit = (event) => {
     setFormSubmitted(true);
+    console.log(
+      process.env.REACT_APP_EMAILJS_SERVICE,
+      process.env.REACT_APP_EMAILJS_TEMPLATE
+    );
     event.preventDefault();
-    //if (formValid)
+    if (!formValid) return;
+    emailjs
+      .sendForm(
+        process.env.REACT_APP_EMAILJS_SERVICE,
+        process.env.REACT_APP_EMAILJS_TEMPLATE,
+        event.target,
+        process.env.REACT_APP_EMAILJS_USER
+      )
+      .then(
+        (result) => {
+          handleEmailSuccess();
+        },
+        (error) => {
+          handleEmailError();
+        }
+      );
   };
   return (
     <div id="contact" ref={ref}>
-      <MainSegmentWhite vertical id="skills">
-        <Header title="GET IN TOUCH" mobile={mobile} />
+      <MainSegmentGrey vertical id="skills">
+        <Header title="GET IN TOUCH" mobile={mobile} color="#bbb" />
         <MainContainer>
           <ContactForm
             mobile={mobile}
@@ -68,7 +88,7 @@ export const Contact = ({ mobile }) => {
             handleChange={handleChange}
           />
         </MainContainer>
-      </MainSegmentWhite>
+      </MainSegmentGrey>
     </div>
   );
 };

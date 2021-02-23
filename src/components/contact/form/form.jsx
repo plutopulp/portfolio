@@ -2,6 +2,7 @@ import React from "react";
 import { Form, Button, Input, TextArea } from "semantic-ui-react";
 
 import { FormContainer, FormTitle, FormSubText } from "./styles";
+import { ErrorMessage, InvalidMessage, SuccessMessage } from "./messages";
 
 const ContactForm = ({
   mobile,
@@ -23,6 +24,13 @@ const ContactForm = ({
         success={formSuccess}
         error={formError}
       >
+        {formSubmitted && (
+          <React.Fragment>
+            <SuccessMessage show={formSuccess} />
+            <InvalidMessage show={!formValid} />
+            <ErrorMessage show={formError} />
+          </React.Fragment>
+        )}
         <Form.Field
           control={Input}
           label="Name"

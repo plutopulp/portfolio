@@ -8,7 +8,12 @@ import * as transitions from "./transitions";
 // All styles are indexed here.
 // Can be imported throughout the app from this single file.
 export const { MainContainer } = containers;
-export const { LandingSegment, MainSegmentBlue, MainSegmentWhite } = segments;
+export const {
+  LandingSegment,
+  MainSegmentBlue,
+  MainSegmentWhite,
+  MainSegmentGrey,
+} = segments;
 export const {
   MainHeader,
   SubHeader,

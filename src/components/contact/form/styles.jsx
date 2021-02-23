@@ -1,12 +1,12 @@
 import styled from "styled-components";
 
 export const FormContainer = styled.div`
-  border: solid 1px #ddd;
+  border: solid 0px #ddd;
   width: ${({ mobile }) => (mobile ? 80 : 40)}%;
   border-radius: 5px;
   margin: 5em auto;
   padding: 1.5em 3em;
-  background: linear-gradient(#257795bb, #ac2cacbb);
+  background: linear-gradient(#25779590, #ac2cac80);
 `;
 
 export const FormTitle = styled.h2`
