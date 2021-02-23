@@ -25,14 +25,14 @@ export const Intro = ({ mobile }) => {
         </Paragraph>
         <Paragraph>
           I enjoy finding simple solutions to complex problems and writing
-          clean, re-useable code. My aim is to build meaningful tools for users
-          and having a positive impact. I am always looking to further develop
-          my skills and collaborate with others.
+          clean, re-useable code. My goal is to build meaningful tools for users
+          and have a positive impact. I am always looking to further develop my
+          skills and collaborate with others.
         </Paragraph>
         <Paragraph>
           When I'm not coding, you will most likely find me down on the mats
           training Brazilian-Jiu-Jitsu, playing chess or making music. I am
-          currently working on a BJJ mind-mapping fullstack application!
+          currently working on a mind-mapping web app for BJJ!
         </Paragraph>
       </OpacityAndTranslateX>
     </Grid.Column>
