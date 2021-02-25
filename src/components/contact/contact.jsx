@@ -49,10 +49,6 @@ export const Contact = ({ mobile }) => {
 
   const handleSubmit = (event) => {
     setFormSubmitted(true);
-    console.log(
-      process.env.REACT_APP_EMAILJS_SERVICE,
-      process.env.REACT_APP_EMAILJS_TEMPLATE
-    );
     event.preventDefault();
     if (!formValid) return;
     emailjs
@@ -63,10 +59,10 @@ export const Contact = ({ mobile }) => {
         process.env.REACT_APP_EMAILJS_USER
       )
       .then(
-        (result) => {
+        () => {
           handleEmailSuccess();
         },
-        (error) => {
+        () => {
           handleEmailError();
         }
       );
