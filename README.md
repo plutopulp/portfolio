@@ -1,7 +1,5 @@
 # Portfolio
-A portfolio website showcasing my projects and skills, built with ReactJS. Check out the live site https://yvanbuggy.com.
-
-![Portfolio landing page](https://github.com/Aviemusca/portfolio/blob/master/portfolio.png?raw=true)
+A portfolio website showcasing my projects and skills, built with ReactJS.
 
 Includes docker-compose for both development and deployment, with SSL certs. 
 
